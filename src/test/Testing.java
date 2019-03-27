@@ -27,10 +27,6 @@ public class Testing {
         MatrixOperator matrix = new MatrixOperator();
         
         System.out.println("data : ");
-//        ReadExcel e = new ReadExcel();
-//        ArrayList<ArrayList> data = e.load_excel_format_xls("D:\\testing.xlsx");
-//        System.out.println(data);
-//        System.out.println();
 ////    
         String path = "D://dataset";
         Pembobotan bobot = new Pembobotan(path);
@@ -41,6 +37,14 @@ public class Testing {
         ArrayList<ArrayList> state = sa.state(3, data.get(0).size(), matrix.min(data), matrix.max(data));
         System.out.println(state);
 //          sa.do_sa(data);
+        
+        EuclideanDistance ed = new EuclideanDistance();
+        
+        ArrayList<ArrayList> jarak_euclide = ed.jarak_euclidean(state, data);
+
+        ArrayList<ArrayList> label_state = sa.label_state(jarak_euclide);
+
+        ArrayList<Double> ji_state = sa.ji(state, label_state);
     }
     
 }

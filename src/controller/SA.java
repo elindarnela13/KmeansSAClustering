@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author User
  */
 public class SA {
-    
+
     public ArrayList<ArrayList> array_to_arraylist(double[][] data) {
         ArrayList<ArrayList> data_arraylist = new ArrayList<>();
         for (int i = 0; i < data.length; i++) {
@@ -86,14 +86,6 @@ public class SA {
         }
         return ji;
     }
-//tanyo ipul beda tipe data 
-    public double sum_araylist(ArrayList<Double> sum_Ji) {
-        double sum = 0;
-        for (int i = 0; i < sum_Ji.size(); i++) {
-            sum += sum_Ji.get(i);
-        }
-        return sum;
-    }
 
     public double temperatur(double ti, double t_rendah) {
         double new_temperatur;
@@ -113,6 +105,17 @@ public class SA {
         return prob_boltzman;
     }
 
+    public double sum_ji(ArrayList<Double> ji){
+        double sum = 0;
+        ji.size();
+        for (int i = 0; i < ji.size(); i++) {
+            sum += ji.get(i);
+            System.out.println(ji.get(i));
+        }
+    
+        return sum;
+    }
+    
     public void do_sa(ArrayList<ArrayList> data) {
         MatrixOperator matrix = new MatrixOperator();
         int centroid = 3;
@@ -128,61 +131,49 @@ public class SA {
 
         //step 1
         //generate random centroid
-        ArrayList<ArrayList> state = new ArrayList<ArrayList>();
-        state.add(state(centroid, data.get(0).size(), min, max));
+        ArrayList<ArrayList> state = state(centroid, data.get(0).size(), min, max);
 //step 2
 //hitung energi
         //distance measure (ngitung jarak)
-        ArrayList<ArrayList> jarak_euclide = new ArrayList<ArrayList>();
-        jarak_euclide.add(ed.jarak_euclidean(state, data));
+        ArrayList<ArrayList> jarak_euclide = ed.jarak_euclidean(state, data);
 
         //labeling
-        ArrayList<ArrayList> label_state = new ArrayList<ArrayList>();
-        label_state.add(label_state(jarak_euclide));
+        ArrayList<ArrayList> label_state = label_state(jarak_euclide);
 
         //hitung ji
-        ArrayList<ArrayList> ji_state = new ArrayList<ArrayList>();
-        ji_state.add(ji(state, label_state));
+        ArrayList<Double> ji_state = ji(state, label_state);
 
-        //energi akhir (sum(ji)??? TANYO IPUL
-//        ArrayList<Double> energi_akhir = new ArrayList<>();
-//        energi_akhir.add(sum_araylist(ji_state));
+        //energi awal (sum(ji)??? TANYO IPUL
 
-       //step 3 
-        while (ti >= t_rendah) {            
+        
+        //step 3 
+        while (ti >= t_rendah) {
             for (int i = 0; i < maxIterasi; i++) {
-                 label_state_update = new ArrayList<ArrayList>(label_state);
-                    for (int j = 0; j < centroid; j++) {
-                        //update state per row
-                        ArrayList<ArrayList> update_state = new ArrayList<ArrayList>();
-                        update_state.add(ed.jarak_euclidean(label_state_update, data));//update satu2 perbaris ?
-                        
-                        //distance measure
-                        ArrayList<ArrayList> jarak_euclide_update = new ArrayList<ArrayList>();
-                        jarak_euclide.add(ed.jarak_euclidean(update_state, data));
-    
-                        //labeling
-                        label_state_update = new ArrayList<ArrayList>();
-                        label_state.add(label_state(jarak_euclide_update));
-                            
-                        //hitung energi
-                        ArrayList<ArrayList> energi_state_update = new ArrayList<ArrayList>();
-                        energi_state_update.add(ed.jarak_euclidean(update_state, data));
+                label_state_update = new ArrayList<ArrayList>(label_state);
+                for (int j = 0; j < centroid; j++) {
+                    //update state per row
+                    ArrayList<ArrayList> update_state = ed.jarak_euclidean(label_state_update, data);//update satu2 perbaris ?
 
-                        ArrayList<ArrayList> label_energi_state_update = new ArrayList<ArrayList>();
-                        label_energi_state_update.add(label_state(energi_state_update));
+                    //distance measure
+                    ArrayList<ArrayList> jarak_euclide_update = ed.jarak_euclidean(update_state, data);
 
-                        ArrayList<ArrayList> ji_state_update = new ArrayList<ArrayList>();
-                        ji_state.add(ji(energi_state_update, label_energi_state_update));
-                        
-                        //energi akhir (sum(ji_update)
-                        
-                        //cek state  
-                        
-                    }
-            
+                    //labeling
+                    label_state_update = label_state(jarak_euclide_update);
+
+                    //hitung energi
+                    ArrayList<ArrayList> energi_state_update = ed.jarak_euclidean(update_state, data);
+
+                    ArrayList<ArrayList> label_energi_state_update = label_state(energi_state_update);
+
+                    ArrayList<Double> ji_state_update = ji(energi_state_update, label_energi_state_update);
+
+                    //energi akhir (sum(ji_update)
+                    
+                    //cek state  
+                }
+
             }
-              
+
         }
     }
 }
