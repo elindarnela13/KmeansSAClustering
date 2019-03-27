@@ -128,6 +128,13 @@ public class SimulatedAnnealing {
         return ji;
     }
     
+    public double sum_araylist(ArrayList<Double> ji) {
+        double sum = 0;
+        for (int i = 0; i < ji.size(); i++) {
+            sum += ji.get(i);
+        }
+        return sum;
+    }
 
     public double temperatur(double ti, double t_rendah) {
         double new_temperatur;
@@ -164,6 +171,7 @@ public class SimulatedAnnealing {
         ArrayList<ArrayList> jarak_energi_update = new ArrayList<ArrayList>();
         ArrayList<ArrayList> label_state_update = new ArrayList<ArrayList>();
         ArrayList<Double> ji = new ArrayList<>();
+        ArrayList<Double> energi_awal = new ArrayList<>();
         
     //step 1 --> generate random     
         state = state(centroid, data.get(0).size(), matrix.min(data), matrix.max(data));
@@ -189,6 +197,7 @@ public class SimulatedAnnealing {
         System.out.println("Ji");
         System.out.println(ji);
         //hitung energi awal
+//        energi_awal = sum_araylist(ji);
         
     //step 3
         while (true) {            
