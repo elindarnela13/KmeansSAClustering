@@ -10,7 +10,6 @@ import Entity.ReadExcel;
 import controller.EuclideanDistance;
 import controller.MatrixOperator;
 import controller.Pembobotan;
-import controller.SA;
 import java.util.ArrayList;
 
 /**

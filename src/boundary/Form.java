@@ -59,8 +59,6 @@ public class Form extends javax.swing.JFrame {
         PanelAlgen = new javax.swing.JPanel();
         TextFieldIterasi = new javax.swing.JTextField();
         LabelIterasi = new javax.swing.JLabel();
-        TextFieldPopsize = new javax.swing.JTextField();
-        LabelPopsize = new javax.swing.JLabel();
         TextFieldCr = new javax.swing.JTextField();
         LabelCr = new javax.swing.JLabel();
         LabelCr1 = new javax.swing.JLabel();
@@ -192,7 +190,11 @@ public class Form extends javax.swing.JFrame {
 
         LabelIterasi.setText("Iterasi");
 
-        LabelPopsize.setText("Energi");
+        TextFieldCr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextFieldCrActionPerformed(evt);
+            }
+        });
 
         LabelCr.setText("Temperatur Awal");
 
@@ -208,40 +210,34 @@ public class Form extends javax.swing.JFrame {
                     .addGroup(PanelAlgenLayout.createSequentialGroup()
                         .addGroup(PanelAlgenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelIterasi)
-                            .addComponent(LabelPopsize)
                             .addComponent(LabelCr))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PanelAlgenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAlgenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextFieldPopsize, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                                .addComponent(TextFieldIterasi))
-                            .addComponent(TextFieldCr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(TextFieldCr, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextFieldIterasi, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(PanelAlgenLayout.createSequentialGroup()
                         .addComponent(LabelCr1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TextFieldCr1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32))
+                        .addComponent(TextFieldCr1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
         );
         PanelAlgenLayout.setVerticalGroup(
             PanelAlgenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAlgenLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(27, 27, 27)
                 .addGroup(PanelAlgenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextFieldIterasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelIterasi))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PanelAlgenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextFieldPopsize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelPopsize))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PanelAlgenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelCr)
-                    .addComponent(TextFieldCr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                    .addComponent(LabelIterasi)
+                    .addComponent(TextFieldIterasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelAlgenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TextFieldCr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelCr))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelAlgenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelCr1)
                     .addComponent(TextFieldCr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jLabel7.setText("Parameter k-means");
@@ -427,6 +423,10 @@ public class Form extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_RadioButtonSVDSAKMeansActionPerformed
 
+    private void TextFieldCrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldCrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldCrActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -476,7 +476,6 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JLabel LabelJlhDokumen;
     private javax.swing.JLabel LabelJlhTerm;
     private javax.swing.JLabel LabelMetodeCluster;
-    private javax.swing.JLabel LabelPopsize;
     private javax.swing.JPanel PanelAlgen;
     private javax.swing.JPanel PanelKmeans;
     private javax.swing.JPanel PanelMetodeCluster;
@@ -490,7 +489,6 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldDBI;
     private javax.swing.JTextField TextFieldIterasi;
     private javax.swing.JTextField TextFieldJlhK;
-    private javax.swing.JTextField TextFieldPopsize;
     private javax.swing.JTextField folderPath;
     private javax.swing.JTextField iterasi;
     private javax.swing.JLabel jLabel1;

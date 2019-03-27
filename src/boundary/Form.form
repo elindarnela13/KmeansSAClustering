@@ -344,52 +344,44 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="LabelIterasi" min="-2" max="-2" attributes="0"/>
-                              <Component id="LabelPopsize" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="LabelCr" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="TextFieldPopsize" pref="53" max="32767" attributes="0"/>
-                                  <Component id="TextFieldIterasi" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="TextFieldCr" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+                              <Component id="TextFieldCr" min="-2" pref="53" max="-2" attributes="0"/>
+                              <Component id="TextFieldIterasi" min="-2" pref="53" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="LabelCr1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="TextFieldCr1" min="-2" pref="53" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="TextFieldIterasi" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="LabelIterasi" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextFieldIterasi" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="TextFieldPopsize" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="LabelPopsize" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="TextFieldCr" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelCr" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="LabelCr" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="TextFieldCr" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="LabelCr1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="TextFieldCr1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -402,14 +394,10 @@
             <Property name="text" type="java.lang.String" value="Iterasi"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="TextFieldPopsize">
-        </Component>
-        <Component class="javax.swing.JLabel" name="LabelPopsize">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Energi"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="TextFieldCr">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextFieldCrActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="LabelCr">
           <Properties>
