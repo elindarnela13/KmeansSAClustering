@@ -405,6 +405,7 @@ public class Form extends javax.swing.JFrame {
 
     private void ButtonMulaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMulaiActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_ButtonMulaiActionPerformed
 
     private void JlhDokumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JlhDokumenActionPerformed

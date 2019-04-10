@@ -51,6 +51,7 @@ public class ReduksiDimensiSvd {
         }
     }
     
+    //matriks US
     private void reduceMatrix(double[][] docTerm, int idx){
         System.out.println(idx+1);
         double[][] ans = new double[docTerm[0].length][docTerm.length];

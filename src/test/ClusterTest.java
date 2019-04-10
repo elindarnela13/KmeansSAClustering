@@ -15,6 +15,7 @@ import controller.ReduksiDimensiSvd;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import static java.util.Locale.US;
 /**
  *
@@ -51,8 +52,9 @@ public class ClusterTest {
           
           ReduksiDimensiSvd reduksi = new ReduksiDimensiSvd(bobot.getGlobalTermList(), bobot.getListDocument(), US);
           reduksi.doReduksiDimensi();
-          
+                    
           System.out.println("Matriks S*V Transpose : ");
-          matrix.transpose(SV);
+          double[][] data_reduksi =  matrix.transpose(SV);
+          System.out.println(data_reduksi);
      }
 }

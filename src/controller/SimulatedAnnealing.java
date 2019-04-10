@@ -40,77 +40,6 @@ public class SimulatedAnnealing {
         return w_random;
     }
 
-    public ArrayList<ArrayList> jarak_euclidean(ArrayList<ArrayList> kromosom, ArrayList<ArrayList> data) {
-
-        ArrayList<ArrayList> jarak_euclidean = new ArrayList<>();
-        for (int i = 0; i < data.size(); i++) {
-            ArrayList<Double> jarak_c = new ArrayList<>();
-            for (int j = 0; j < kromosom.size(); j++) {
-
-                double total = 0.0;
-                for (int k = 0; k < kromosom.get(j).size(); k++) {
-                    total = total + (Math.pow(
-                            (Double.parseDouble(data.get(i).get(k).toString())
-                            - Double.parseDouble(kromosom.get(j).get(k).toString())), 2));
-                }
-                jarak_c.add(total);
-            }
-            jarak_euclidean.add(jarak_c);
-        }
-        return jarak_euclidean;
-    }
-
-    public ArrayList<ArrayList> label_state(ArrayList<ArrayList> jarak_euclidean_1) {
-
-        ArrayList<ArrayList> label_state = new ArrayList<>();
-
-        ArrayList<Integer> labeling = new ArrayList<>();
-        for (int i = 0; i < jarak_euclidean_1.size(); i++) {
-            double jarak = Double.parseDouble(jarak_euclidean_1.get(i).get(0).toString());
-            int index = 0;
-            for (int j = 0; j < jarak_euclidean_1.get(i).size(); j++) {
-                if (jarak <= Double.parseDouble(jarak_euclidean_1.get(i).get(j).toString())) {
-                    jarak = Double.parseDouble(jarak_euclidean_1.get(i).get(j).toString());
-                    index = j;
-                }
-            }
-            labeling.add(index);
-        }
-
-        for (int i = 0; i < 3; i++) {
-            ArrayList<Integer> label_kromosom_s = new ArrayList<>();
-
-            for (int j = 0; j < labeling.size(); j++) {
-                if (labeling.get(j) == i) {
-                    label_kromosom_s.add(j);
-                }
-            }
-            label_state.add(label_kromosom_s);
-        }
-        return label_state;
-    }
-
-    public ArrayList<ArrayList> update_centeroid(ArrayList<ArrayList> label_state, ArrayList<ArrayList> data) {
-
-        ArrayList<ArrayList> update_centeroid = new ArrayList<>();
-        for (int i = 0; i < label_state.size(); i++) {
-            ArrayList<Double> averages = new ArrayList<>();
-            for (int l = 0; l < data.get(0).size(); l++) {
-                double total = 0;
-                for (int j = 0; j < label_state.get(i).size(); j++) {
-                    total = Double.parseDouble(data.get(Integer.parseInt(label_state.get(i).get(j).toString())).get(l).toString()) + total;
-                }
-                if (total != 0) {
-                    averages.add(total / (label_state.get(i).size() * 1.0));
-                } else {
-                    averages.add(0.0);
-                }
-            }
-            update_centeroid.add(averages);
-        }
-        return update_centeroid;
-    }
-
     public ArrayList<Double> ji(ArrayList<ArrayList> energi_state, ArrayList<ArrayList> label_energi_state) {
 
         ArrayList<Double> ji = new ArrayList<>();
@@ -127,7 +56,7 @@ public class SimulatedAnnealing {
         }
         return ji;
     }
-    
+
     public double sum_araylist(ArrayList<Double> ji) {
         double sum = 0;
         for (int i = 0; i < ji.size(); i++) {
@@ -157,7 +86,7 @@ public class SimulatedAnnealing {
     public void do_sa(ArrayList<ArrayList> data) {
         controller.EuclideanDistance ed = new controller.EuclideanDistance();
         controller.MatrixOperator matrix = new controller.MatrixOperator();
-        
+
         int centroid = 3;
         int maxIterasi = 10;
         double ti = 100;
@@ -167,41 +96,65 @@ public class SimulatedAnnealing {
         ArrayList<ArrayList> state = new ArrayList<ArrayList>();
         ArrayList<ArrayList> jarak = new ArrayList<ArrayList>();
         ArrayList<ArrayList> label_state = new ArrayList<ArrayList>();
-        ArrayList<ArrayList> update_centroid = new ArrayList<ArrayList>(); 
-        ArrayList<ArrayList> jarak_energi_update = new ArrayList<ArrayList>();
-        ArrayList<ArrayList> label_state_update = new ArrayList<ArrayList>();
+        ArrayList<ArrayList> update_centroid = new ArrayList<ArrayList>();
         ArrayList<Double> ji = new ArrayList<>();
-        ArrayList<Double> energi_awal = new ArrayList<>();
-        
-    //step 1 --> generate random     
+        double energi_awal;
+
+        //step 1 --> generate random     
         state = state(centroid, data.get(0).size(), matrix.min(data), matrix.max(data));
         System.out.println(state);
         //hitung jarak
-        jarak = jarak_euclidean(state, data);
+        jarak = ed.jarak_euclidean(state, data);
         //labeling
-        label_state = label_state(jarak);
-        //update state
-        update_centroid = update_centeroid(label_state, data);
-        
-    //step 2 --> hitung energi
-        //hitung 
-        jarak_energi_update = jarak_euclidean(update_centroid, data);
-        System.out.println("Jarak Minimum: ");
-        System.out.println(jarak_energi_update);
-        //labeling
-        label_state_update = label_state(jarak_energi_update);
-        System.out.println("Cluster :");
-        System.out.println(label_state_update);
+        label_state = ed.label_state(jarak);
+
+        //step 2 --> hitung energi
         //hitung ji
-        ji = ji(jarak_energi_update, label_state);
+        ji = ji(jarak, label_state);
         System.out.println("Ji");
         System.out.println(ji);
         //hitung energi awal
-//        energi_awal = sum_araylist(ji);
-        
-    //step 3
-        while (true) {            
-            
+        energi_awal = sum_araylist(ji);
+        System.out.println("sum_Ji");
+        System.out.println(energi_awal);
+
+        //step 3
+        ArrayList<ArrayList> state_update = new ArrayList<ArrayList>();
+        while (ti < t_rendah) {
+            for (int i = 0; i < maxIterasi; i++) {
+
+                ArrayList<ArrayList> state_new = new ArrayList<ArrayList>();
+                ArrayList<ArrayList> state_gabung = new ArrayList<ArrayList>();
+                for (int j = 0; j < centroid; j++) {
+                    //update
+                    //state_update = ...
+                    
+                    //gabung state baris yg sdh di update(state_update) dgn sisa baris dr state sebelumnya
+                    //state_gabung = ... 
+                    
+                    //hitung energi
+                    //hitung jarak
+                    ArrayList<ArrayList> jarak_update = ed.jarak_euclidean(state_gabung, data);
+                    //labeling
+                    ArrayList<ArrayList> label_update = ed.label_state(jarak_update);
+                    //hitung ji
+                    ArrayList<Double> ji_update = ji(jarak_update, label_state);
+                    //hitung sum_ji
+                    double energi_akhir = sum_araylist(ji_update);
+
+                    if ((energi_akhir - energi_awal) <= 0) {//state accepted
+                        state_new = state_update;
+                    } else {
+                        if (i > 0) {
+//                            state_new = state_1.get(j);
+                        }else{
+                            state_new = state.get(j);
+                        }
+                    }
+                }
+                ArrayList<ArrayList> state_1 = state_new;
+            }
         }
     }
 }
+
