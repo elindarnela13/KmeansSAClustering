@@ -9,19 +9,21 @@ import java.util.ArrayList;
 
 /**
  *
- * @author ASUS
+ * @author user
  */
 public class K_Means {
     ArrayList<ArrayList> centroid_akhir;
     ArrayList<ArrayList>  hasil_cluster;
 
     public void do_k_means(ArrayList<ArrayList> centroid_fix, ArrayList<ArrayList> data) {
-        EuclideanDistance dm = new EuclideanDistance();
+        DistanceMeasure dm = new DistanceMeasure();
         boolean check = false;
         ArrayList<ArrayList> centroid_lama = new ArrayList<>(centroid_fix);
         ArrayList<ArrayList> euclidean = dm.jarak_euclidean(centroid_lama, data);
         ArrayList<ArrayList> label_euclidean = dm.label_state(euclidean);
         int maks_iterasi = 0;
+        
+        
 //        System.out.println("label sebelum");
 //        System.out.println(label_euclidean);
 
@@ -55,7 +57,7 @@ public class K_Means {
             label_euclidean = dm.label_state(euclidean);
             maks_iterasi++;
           
-            if (maks_iterasi == 100) {
+            if (maks_iterasi == 1000) {
                 check = true;
             }
         }

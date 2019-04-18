@@ -44,8 +44,10 @@ public class SimulatedAnnealing {
 
         ArrayList<Double> ji = new ArrayList<>();
         for (int i = 0; i < label_energi_state.size(); i++) {
+//            System.out.println("i: "+i);
             double total = 0;
             for (int j = 0; j < label_energi_state.get(i).size(); j++) {
+//                System.out.println("j: "+j);
                 total = Double.parseDouble(energi_state.get(Integer.parseInt(label_energi_state.get(i).get(j).toString())).get(i).toString()) + total;
             }
             if (total != 0) {
@@ -84,15 +86,15 @@ public class SimulatedAnnealing {
     }
 
     public void do_sa(ArrayList<ArrayList> data) {
-        controller.EuclideanDistance ed = new controller.EuclideanDistance();
+        controller.DistanceMeasure ed = new controller.DistanceMeasure();
         controller.MatrixOperator matrix = new controller.MatrixOperator();
 
-        int centroid = 3;
-        int maxIterasi = 10;
+        int cluster = 3;
+        int maxIterasi = 3;
         double ti = 100;
         double t_rendah = 0.9;
-        double min = matrix.min(data);
-        double max = matrix.max(data);
+        double minimum = matrix.nilai_minimum(data);
+        double maksimum = matrix.nilai_maksimum(data);
         ArrayList<ArrayList> state = new ArrayList<ArrayList>();
         ArrayList<ArrayList> jarak = new ArrayList<ArrayList>();
         ArrayList<ArrayList> label_state = new ArrayList<ArrayList>();
@@ -101,13 +103,14 @@ public class SimulatedAnnealing {
         double energi_awal;
 
         //step 1 --> generate random     
-        state = state(centroid, data.get(0).size(), matrix.min(data), matrix.max(data));
+        state = state(cluster, data.get(0).size(), matrix.nilai_minimum(data), matrix.nilai_maksimum(data));
         System.out.println(state);
         //hitung jarak
         jarak = ed.jarak_euclidean(state, data);
         //labeling
         label_state = ed.label_state(jarak);
-
+        System.out.println("label_state1");
+        System.out.println(label_state);
         //step 2 --> hitung energi
         //hitung ji
         ji = ji(jarak, label_state);
@@ -115,46 +118,78 @@ public class SimulatedAnnealing {
         System.out.println(ji);
         //hitung energi awal
         energi_awal = sum_araylist(ji);
-        System.out.println("sum_Ji");
+        System.out.println("energi_awal");
         System.out.println(energi_awal);
+        ArrayList<ArrayList> new_state = state;
 
         //step 3
         ArrayList<ArrayList> state_update = new ArrayList<ArrayList>();
-        while (ti < t_rendah) {
-            for (int i = 0; i < maxIterasi; i++) {
+        ArrayList<ArrayList> label_state_update = new ArrayList<ArrayList>();
+//        while (ti < t_rendah) {
+        for (int i = 0; i < maxIterasi; i++) {
+            ArrayList<ArrayList> temp = new ArrayList<ArrayList>();
+                System.out.println("i= "+i);
+            for (int j = 0; j < state.size(); j++) {
+                    System.out.println("j= "+j);
+//update
+                //state_update 
+                ArrayList<ArrayList> update_state = new ArrayList<>();
+                if (j > 0) {
+                    update_state = ed.update_centeroid(label_state_update, data);
+                } else {
+                    update_state = ed.update_centeroid(label_state, data);
+                }
 
-                ArrayList<ArrayList> state_new = new ArrayList<ArrayList>();
-                ArrayList<ArrayList> state_gabung = new ArrayList<ArrayList>();
-                for (int j = 0; j < centroid; j++) {
-                    //update
-                    //state_update = ...
-                    
-                    //gabung state baris yg sdh di update(state_update) dgn sisa baris dr state sebelumnya
-                    //state_gabung = ... 
-                    
-                    //hitung energi
-                    //hitung jarak
-                    ArrayList<ArrayList> jarak_update = ed.jarak_euclidean(state_gabung, data);
-                    //labeling
-                    ArrayList<ArrayList> label_update = ed.label_state(jarak_update);
-                    //hitung ji
-                    ArrayList<Double> ji_update = ji(jarak_update, label_state);
-                    //hitung sum_ji
-                    double energi_akhir = sum_araylist(ji_update);
+                System.out.println("update_state");
+                System.out.println(update_state);
 
-                    if ((energi_akhir - energi_awal) <= 0) {//state accepted
-                        state_new = state_update;
+                ArrayList<ArrayList> update_state_row = update_state.get(j);
+
+                System.out.println("update_state_row");
+                System.out.println(update_state_row);
+
+                new_state.set(j, update_state_row);
+
+//                    for(int k=0; k<state.size(); k++){
+//                        if (k>0) {
+//                            new_state.add(state.get(k));
+//                        }else{
+//                            new_state.add(update_state_row);
+//                        }
+//                    }
+                System.out.println("state baru");
+                System.out.println(new_state);
+                temp = new_state;
+
+                ArrayList<ArrayList> jarak_state_update = ed.jarak_euclidean(new_state, data);
+
+                label_state_update = ed.label_state(jarak_state_update);
+                System.out.println("label_state");
+                System.out.println(label_state_update);
+                ArrayList<Double> ji_update = ji(jarak_state_update, label_state_update);
+                double energi_akhir = sum_araylist(ji_update);
+                System.out.println("energi akhir");
+                System.out.println(energi_akhir);
+                double energi = energi_akhir - energi_awal;
+                System.out.println("energi");
+                System.out.println(energi);
+                
+                if (i > 0) {
+                    energi_awal = energi_akhir;
+                    System.out.println("energi_awal2");
+                    System.out.println(energi_awal);
+                }
+
+                if (energi > 0) {
+                    if (i > 0) {
+                        new_state = temp;
                     } else {
-                        if (i > 0) {
-//                            state_new = state_1.get(j);
-                        }else{
-                            state_new = state.get(j);
-                        }
+                        new_state = state;
                     }
                 }
-                ArrayList<ArrayList> state_1 = state_new;
+
             }
+//        }
         }
     }
 }
-

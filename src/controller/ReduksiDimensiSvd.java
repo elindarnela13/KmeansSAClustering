@@ -40,7 +40,7 @@ public class ReduksiDimensiSvd {
                             lstDoc.get(i).getTermList().getTermAt(j).getTerm())){
                         termIdx = k;
                         break;
-                    }
+                  }
                 }
                 docTerm[j] = US[termIdx];
                 System.out.println(Arrays.toString(docTerm[j]));
@@ -51,8 +51,10 @@ public class ReduksiDimensiSvd {
         }
     }
     
+    
     //matriks US
     private void reduceMatrix(double[][] docTerm, int idx){
+        System.out.println("reduce matriks : ");
         System.out.println(idx+1);
         double[][] ans = new double[docTerm[0].length][docTerm.length];
         for(int rows = 0; rows < docTerm.length; rows++){

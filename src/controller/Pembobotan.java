@@ -63,18 +63,18 @@ public class Pembobotan {
         for(int i=0; i<lstDoc.size(); i++){
             String sdocs[] = lstDoc.get(i).getTermList().toStringArray();
             //hasil stemming per dokumen
-//            System.out.println(lstDoc.get(i).getJudul() + " : " + Arrays.toString(lstDoc.get(i).getTermList().toStringArray()));
+            System.out.println(lstDoc.get(i).getJudul() + " : " + Arrays.toString(lstDoc.get(i).getTermList().toStringArray()));
             
             for(int j=0; j<hasilPembobotan.length; j++){
                 hasilPembobotan[j][i] = tf(sdocs, globaltermlist.getTermAt(j).getTerm()) * 
                         idf(lstDoc, globaltermlist.getTermAt(j).getTerm());
                 //bobot per-kata  
-               // System.out.print(globaltermlist.getTermAt(j).getTerm() + ": ");
+//                System.out.print(globaltermlist.getTermAt(j).getTerm() + ": ");
                 
                 //tampilkan hasil pembobotan
 //                System.out.println(hasilPembobotan[j][i]); //[term][doc]               
             }
-            //System.out.println("\n");
+//            System.out.println("\n");
         }
     }
     
@@ -122,5 +122,17 @@ public class Pembobotan {
 //        System.out.println("df = "+n);
 //        System.out.println("idf = "+Math.log10(2));
         return Math.log10(listdoc.size()/n);
+    }
+    
+    public ArrayList<ArrayList> array_to_arraylist(double[][] data) {
+        ArrayList<ArrayList> data_arraylist = new ArrayList<>();
+        for (int i = 0; i < data.length; i++) {
+            ArrayList<Double> temp = new ArrayList<>();
+            for (int j = 0; j < data[i].length; j++) {
+                temp.add(data[i][j]);
+            }
+            data_arraylist.add(temp);
+        }
+        return data_arraylist;
     }
 }

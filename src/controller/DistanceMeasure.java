@@ -11,27 +11,29 @@ import java.util.ArrayList;
  *
  * @author User
  */
-public class EuclideanDistance {
-
-    public ArrayList<ArrayList> jarak_euclidean(ArrayList<ArrayList> kromosom, ArrayList<ArrayList> data) {
+public class DistanceMeasure {
+    
+ public ArrayList<ArrayList> jarak_euclidean(ArrayList<ArrayList> state, ArrayList<ArrayList> data) {
 
         ArrayList<ArrayList> jarak_euclidean = new ArrayList<>();
+        
         for (int i = 0; i < data.size(); i++) {
             ArrayList<Double> jarak_c = new ArrayList<>();
-            for (int j = 0; j < kromosom.size(); j++) {
-
+            for (int j = 0; j < state.size(); j++) {
                 double total = 0.0;
-                for (int k = 0; k < kromosom.get(j).size(); k++) {
+                for (int k = 0; k < state.get(j).size(); k++) {
                     total = total + (Math.pow(
                             (Double.parseDouble(data.get(i).get(k).toString())
-                            - Double.parseDouble(kromosom.get(j).get(k).toString())), 2));
+                            - Double.parseDouble(state.get(j).get(k).toString())), 2));
                 }
-                jarak_c.add(total);
+                double total_hasil = Math.sqrt(total);
+                jarak_c.add(total_hasil);
             }
             jarak_euclidean.add(jarak_c);
         }
         return jarak_euclidean;
-    }
+
+    }    
 
     public ArrayList<ArrayList> update_centeroid(ArrayList<ArrayList> label_state, ArrayList<ArrayList> data) {
         ArrayList<ArrayList> update_centeroid = new ArrayList<>();
@@ -59,26 +61,26 @@ public class EuclideanDistance {
         return update_centeroid;
     }
 
-    public ArrayList<Double> update_state_row(ArrayList<Double> label_state, ArrayList<ArrayList> data) {
-        ArrayList<Double> update_state_row = new ArrayList<Double>();
-
-        double averages = 0;   
-        for (int l = 0; l < data.get(0).size(); l++) {
-//            System.out.println("data.get(0).size()");
-//            System.out.println(data.get(0).size());
-            double total = 0;
-            for (int j = 0; j < label_state.size(); j++) {
-                total = Double.parseDouble(data.get(Integer.parseInt(label_state.get(j).toString())).get(l).toString()) + total;
-            }
-            if (total != 0) {
-                averages = (total / (label_state.size() * 1.0));
-            } else {
-                averages = 0.0;
-            }
-            update_state_row.add(averages);
-        }
-        return update_state_row;
-    }
+//    public ArrayList<Double> update_state_row(ArrayList<Double> label_state, ArrayList<ArrayList> data) {
+//        ArrayList<Double> update_state_row = new ArrayList<Double>();
+//
+//        double averages = 0;   
+//        for (int l = 0; l < data.get(0).size(); l++) {
+////            System.out.println("data.get(0).size()");
+////            System.out.println(data.get(0).size());
+//            double total = 0;
+//            for (int j = 0; j < label_state.size(); j++) {
+//                total = Double.parseDouble(data.get(Integer.parseInt(label_state.get(j).toString())).get(l).toString()) + total;
+//            }
+//            if (total != 0) {
+//                averages = (total / (label_state.size() * 1.0));
+//            } else {
+//                averages = 0.0;
+//            }
+//            update_state_row.add(averages);
+//        }
+//        return update_state_row;
+//    }
 
     public ArrayList<ArrayList> label_state(ArrayList<ArrayList> jarak_euclidean_1) {
 
@@ -98,16 +100,20 @@ public class EuclideanDistance {
         }
 
         for (int i = 0; i < 3; i++) {
-            ArrayList<Integer> label_kromosom_s = new ArrayList<>();
+            ArrayList<Integer> label_state_s = new ArrayList<>();
 
             for (int j = 0; j < labeling.size(); j++) {
                 if (labeling.get(j) == i) {
-                    label_kromosom_s.add(j);
+                    label_state_s.add(j);
                 }
             }
-            label_state.add(label_kromosom_s);
+            label_state.add(label_state_s);
         }
         return label_state;
     }
+
+  
+
+   
 
 }

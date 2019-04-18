@@ -22,7 +22,7 @@ import java.util.List;
 
 public class MatrixOperator {
     
-    public double[][] transpose(double[][] data){
+        public double[][] transpose(double[][] data){
         System.out.println("--------------transpose----------------");
         double[][] transposedMatrix = new double[data[0].length][data.length];
         for(int rows = 0; rows < data.length; rows++){
@@ -51,29 +51,29 @@ public class MatrixOperator {
         }
         return multipliedMatrix;
     }
-     
-    public double min(ArrayList<ArrayList> data){
-        double min = 0;
-        for (int i = 0; i < data.size(); i++) {
-            for (int j = 0; j < data.get(i).size(); j++) {
-                if (min > Double.parseDouble(data.get(i).get(j).toString())) {
-                    Double.parseDouble(data.get(i).get(j).toString());
+    
+    public double nilai_maksimum(ArrayList<ArrayList> data){
+        double maksimum=0;
+        for(int i=0; i<data.size(); i++){
+            for(int j=0; j<data.get(i).size(); j++){
+                if(maksimum<Double.parseDouble(data.get(i).get(j).toString())){
+                    maksimum=Double.parseDouble(data.get(i).get(j).toString());
                 }
             }
         }
-        return min;
+        return maksimum;
     }
     
-    public double max(ArrayList<ArrayList> data){
-        double max = 0;
-        for (int i = 0; i < data.size(); i++) {
-            for (int j = 0; j < data.get(i).size(); j++) {
-                if (max < Double.parseDouble(data.get(i).get(j).toString())) {
-                    Double.parseDouble(data.get(i).get(j).toString());
+     public double nilai_minimum(ArrayList<ArrayList> data){
+        double minimum=99999;
+        for(int i=0; i<data.size(); i++){
+            for(int j=0; j<data.get(i).size(); j++){
+                if(minimum>Double.parseDouble(data.get(i).get(j).toString())){
+                    minimum=Double.parseDouble(data.get(i).get(j).toString());
                 }
             }
         }
-        return max;
+        return minimum;
     }
 
 }
