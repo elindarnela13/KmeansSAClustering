@@ -15,13 +15,13 @@ import Controller.SimulatedAnnealing;
 public class DBI {
     double dbi;
 
-    public ArrayList<Double> hitung_si(ArrayList<ArrayList> energi_state, ArrayList<ArrayList> label_energi_state, int cluster) {
+    public ArrayList<Double> hitung_si(ArrayList<ArrayList> energi_state, ArrayList<ArrayList> label_state, int cluster) {
 
         ArrayList<Double> ji = new ArrayList<>();
-        for (int i = 0; i < label_energi_state.size(); i++) {
+        for (int i = 0; i < label_state.size(); i++) {
             double total = 0;
-            for (int j = 0; j < label_energi_state.get(i).size(); j++) {
-                total = Double.parseDouble(energi_state.get(Integer.parseInt(label_energi_state.get(i).get(j).toString())).get(i).toString()) + total;
+            for (int j = 0; j < label_state.get(i).size(); j++) {
+                total = Double.parseDouble(energi_state.get(Integer.parseInt(label_state.get(i).get(j).toString())).get(i).toString()) + total;
             }
 
             ji.add(total / cluster);

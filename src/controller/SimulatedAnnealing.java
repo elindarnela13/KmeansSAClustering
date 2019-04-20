@@ -69,9 +69,12 @@ public class SimulatedAnnealing {
 
     public double temperatur(double ti, double t_rendah) {
         double new_temperatur;
+        int i = 0;
         int numTemp = 200;
+        double acc_ratio = 0.75;
 
-        new_temperatur = ti * ((t_rendah / ti) * 1 / numTemp);
+        new_temperatur = (ti * acc_ratio) * ((t_rendah / ti) * 1 / numTemp);
+//        new_temperatur= Math.pow((ti*acc_ratio)*(t_rendah/ti), 1/numTemp);
 
         return new_temperatur;
     }
@@ -90,7 +93,7 @@ public class SimulatedAnnealing {
         controller.MatrixOperator matrix = new controller.MatrixOperator();
 
         int cluster = 3;
-        int maxIterasi = 3;
+        int maxIterasi = 20;
         double ti = 100;
         double t_rendah = 0.9;
         double minimum = matrix.nilai_minimum(data);
@@ -118,37 +121,51 @@ public class SimulatedAnnealing {
         System.out.println(ji);
         //hitung energi awal
         energi_awal = sum_araylist(ji);
-        System.out.println("energi_awal");
-        System.out.println(energi_awal);
+//      System.out.println("energi_awal");
+//      System.out.println(energi_awal);
         ArrayList<ArrayList> new_state = state;
 
         //step 3
         ArrayList<ArrayList> state_update = new ArrayList<ArrayList>();
         ArrayList<ArrayList> label_state_update = new ArrayList<ArrayList>();
-//        while (ti < t_rendah) {
-        for (int i = 0; i < maxIterasi; i++) {
-            ArrayList<ArrayList> temp = new ArrayList<ArrayList>();
-                System.out.println("i= "+i);
-            for (int j = 0; j < state.size(); j++) {
-                    System.out.println("j= "+j);
-//update
-                //state_update 
-                ArrayList<ArrayList> update_state = new ArrayList<>();
-                if (j > 0) {
-                    update_state = ed.update_centeroid(label_state_update, data);
-                } else {
-                    update_state = ed.update_centeroid(label_state, data);
-                }
+        while (ti >= t_rendah) {
 
-                System.out.println("update_state");
-                System.out.println(update_state);
+            for (int i = 0; i < maxIterasi; i++) {
 
-                ArrayList<ArrayList> update_state_row = update_state.get(j);
+                System.out.println("energi_awal");
+                System.out.println(energi_awal);
+                ArrayList<ArrayList> temp = new ArrayList<ArrayList>();
+                System.out.println("i= " + i);
+                for (int j = 0; j < state.size(); j++) {
+                    System.out.println("j= " + j);
+                    //update
+                    //state_update 
+                    ArrayList<ArrayList> update_state = new ArrayList<>();
+                    if (i == 0) {
+                        if (j > 0) {
+                            update_state = ed.update_centeroid(label_state_update, data);
+                        } else {
+                            update_state = ed.update_centeroid(label_state, data);
+                        }
+                    } else {
+                            update_state = ed.update_centeroid(label_state_update, data);
+                    }
 
-                System.out.println("update_state_row");
-                System.out.println(update_state_row);
+//                    if (i==0 && j==0) {
+//                        update_state = ed.update_centeroid(label_state, data);
+//                    }else{
+//                        update_state = ed.update_centeroid(label_state_update, data);
+//                    }
 
-                new_state.set(j, update_state_row);
+                    System.out.println("update_state");
+                    System.out.println(update_state);
+
+                    ArrayList<ArrayList> update_state_row = update_state.get(j);
+
+                    System.out.println("update_state_row");
+                    System.out.println(update_state_row);
+
+                    new_state.set(j, update_state_row);
 
 //                    for(int k=0; k<state.size(); k++){
 //                        if (k>0) {
@@ -157,39 +174,50 @@ public class SimulatedAnnealing {
 //                            new_state.add(update_state_row);
 //                        }
 //                    }
-                System.out.println("state baru");
-                System.out.println(new_state);
-                temp = new_state;
+                    System.out.println("state baru");
+                    System.out.println(new_state);
+                    temp = new_state;
 
-                ArrayList<ArrayList> jarak_state_update = ed.jarak_euclidean(new_state, data);
-
-                label_state_update = ed.label_state(jarak_state_update);
-                System.out.println("label_state");
-                System.out.println(label_state_update);
-                ArrayList<Double> ji_update = ji(jarak_state_update, label_state_update);
-                double energi_akhir = sum_araylist(ji_update);
-                System.out.println("energi akhir");
-                System.out.println(energi_akhir);
-                double energi = energi_akhir - energi_awal;
-                System.out.println("energi");
-                System.out.println(energi);
-                
-                if (i > 0) {
+                    ArrayList<ArrayList> jarak_state_update = ed.jarak_euclidean(new_state, data);
+                    label_state_update = ed.label_state(jarak_state_update);
+                    System.out.println("label_state");
+                    System.out.println(label_state_update);
+                    ArrayList<Double> ji_update = ji(jarak_state_update, label_state_update);
+                    double energi_akhir = sum_araylist(ji_update);
+                    System.out.println("energi akhir");
+                    System.out.println(energi_akhir);
+                    double energi = energi_akhir - energi_awal;
                     energi_awal = energi_akhir;
-                    System.out.println("energi_awal2");
-                    System.out.println(energi_awal);
-                }
+                    System.out.println("perubahan energi");
+                    System.out.println(energi);
 
-                if (energi > 0) {
-                    if (i > 0) {
-                        new_state = temp;
-                    } else {
-                        new_state = state;
+//                if (i > 0) {
+//                    energi_awal = energi_akhir;
+//                    System.out.println("energi_awal2");
+//                    System.out.println(energi_awal);
+//                }
+                    if (energi > 0) {
+                        if (i > 0) {
+                            new_state = temp;
+                        } else {
+                            new_state = state;
+                        }
                     }
+
                 }
+                System.out.println("Temperatur");
+                System.out.println(ti);
+
+                ti = temperatur(ti, t_rendah);
 
             }
-//        }
+//         state_hasil_SA = new ArrayList<ArrayList<ArrayList>>(new_state);     
+//
+//            ArrayList<ArrayList> centroid_fix=kromosom_hasil_mutasi.get(0);
+//            System.out.println(kromosom_hasil_mutasi.get(0));
+//            return centroid_fix;
+
         }
+//         
     }
 }

@@ -83,7 +83,7 @@ public class NewMain {
 
         DBI dbi = new DBI();
         dbi.hitung_dbi(data_hsl_reduksi, centroid_akhir);
-//        System.out.println(dbi.get_dbi());
+        System.out.println(dbi.get_dbi());
     }
 
 }

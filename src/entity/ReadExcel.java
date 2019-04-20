@@ -40,9 +40,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ReadExcel {
 
     public String ReadExcel;
-      public ArrayList<ArrayList<Double>> load_excel_format_xls(String filename) {
+      public ArrayList<ArrayList> load_excel_format_xls(String filename) {
 
-        ArrayList<ArrayList<Double>> data = new ArrayList<>();
+        ArrayList<ArrayList> data = new ArrayList<>();
 
         try {
             FileInputStream excelFile = new FileInputStream(new File(filename));
@@ -50,7 +50,7 @@ public class ReadExcel {
             Sheet datatypeSheet = (Sheet) workbook.getSheetAt(0);
             Iterator<Row> iterator = datatypeSheet.iterator();
 
-            ArrayList<Double> data_from_excel = new ArrayList<>();
+            ArrayList<String> data_from_excel = new ArrayList<>();
 
             while (iterator.hasNext()) {
 
@@ -59,13 +59,12 @@ public class ReadExcel {
                 ArrayList<Double> angka = new ArrayList<>();
                 while (cellIterator.hasNext()) {
                     Cell currentCell = cellIterator.next();
-                    data_from_excel.add(Double.valueOf(currentCell.getStringCellValue()));
-//                    if (currentCell.getCellTypeEnum() == CellType.STRING) {
-//                        data_from_excel.add(currentCell.getStringCellValue().trim().toLowerCase());
-////
-//                    } else if (currentCell.getCellTypeEnum() == CellType.NUMERIC) {
-//                        data_from_excel.add(String.valueOf((double) currentCell.getNumericCellValue()));
-//                    }
+                    if (currentCell.getCellTypeEnum() == CellType.STRING) {
+                        data_from_excel.add(currentCell.getStringCellValue().trim().toLowerCase());
+//
+                    } else if (currentCell.getCellTypeEnum() == CellType.NUMERIC) {
+                        data_from_excel.add(String.valueOf((double) currentCell.getNumericCellValue()));
+                    }
 
                 }
 

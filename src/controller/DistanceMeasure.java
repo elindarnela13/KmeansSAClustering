@@ -99,7 +99,7 @@ public class DistanceMeasure {
             labeling.add(index);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < jarak_euclidean_1.get(0).size(); i++) {
             ArrayList<Integer> label_state_s = new ArrayList<>();
 
             for (int j = 0; j < labeling.size(); j++) {

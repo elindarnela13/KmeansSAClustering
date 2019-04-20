@@ -19,8 +19,10 @@ import controller.ReduksiDimensiSvd;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -60,7 +62,6 @@ public class Form extends javax.swing.JFrame {
         buttonGroupMetodeCluster = new javax.swing.ButtonGroup();
         ButtonMuat = new javax.swing.JButton();
         folderPath = new javax.swing.JTextField();
-        ScrollPanelCentroid = new javax.swing.JScrollPane();
         ButtonMulai = new javax.swing.JButton();
         LabelDBI = new javax.swing.JLabel();
         TextFieldDBI = new javax.swing.JTextField();
@@ -82,12 +83,16 @@ public class Form extends javax.swing.JFrame {
         LabelTemperaturAkhir = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableCluster = new javax.swing.JTable();
         LabelCentroid = new javax.swing.JLabel();
         LabelHasilCluster = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         waktuKomputasi = new javax.swing.JTextField();
+        Iterasi = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ScrollPanelCentroid = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableCluster = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -246,6 +251,30 @@ public class Form extends javax.swing.JFrame {
 
         jLabel8.setText("Parameter Algoritma SImulated Annealing");
 
+        LabelCentroid.setText("Centroid");
+
+        LabelHasilCluster.setText("Hasil Clustering");
+
+        jLabel2.setText("Waktu Komputasi");
+
+        waktuKomputasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                waktuKomputasiActionPerformed(evt);
+            }
+        });
+
+        Iterasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IterasiActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Iterasi");
+
+        ScrollPanelCentroid.setColumns(20);
+        ScrollPanelCentroid.setRows(5);
+        jScrollPane1.setViewportView(ScrollPanelCentroid);
+
         jTableCluster.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -259,23 +288,12 @@ public class Form extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTableCluster);
 
-        LabelCentroid.setText("Centroid");
-
-        LabelHasilCluster.setText("Hasil Clustering");
-
-        jLabel2.setText("Waktu Komputasi");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(ButtonMuat)
-                        .addGap(18, 18, 18)
-                        .addComponent(folderPath))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -284,9 +302,6 @@ public class Form extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addComponent(PanelMetodeCluster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(ButtonMulai, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(PanelKmeans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -297,26 +312,36 @@ public class Form extends javax.swing.JFrame {
                                     .addComponent(jLabel7)))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel8)))
+                                .addComponent(jLabel8))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addComponent(ButtonMulai, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ScrollPanelCentroid)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LabelCentroid)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(waktuKomputasi, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(waktuKomputasi, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(Iterasi, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(LabelCentroid)
+                            .addComponent(LabelHasilCluster)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(LabelDBI)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(TextFieldDBI, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(LabelHasilCluster)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(ButtonMuat)
+                                .addGap(18, 18, 18)
+                                .addComponent(folderPath, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,22 +356,15 @@ public class Form extends javax.swing.JFrame {
                     .addComponent(TextFieldDBI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(waktuKomputasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelMetodeCluster)
                     .addComponent(LabelCentroid))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(PanelMetodeCluster, javax.swing.GroupLayout.PREFERRED_SIZE, 122, Short.MAX_VALUE)
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ScrollPanelCentroid, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(LabelHasilCluster)
-                        .addGap(5, 5, 5)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(PanelMetodeCluster, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(PanelKmeans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -355,11 +373,19 @@ public class Form extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PanelSimulatedAnnealing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(ButtonMulai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(ButtonMulai, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 9, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(LabelHasilCluster)
+                        .addGap(11, 11, 11)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Iterasi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(10, 10, 10))))
         );
 
         pack();
@@ -419,6 +445,7 @@ public class Form extends javax.swing.JFrame {
 //                TextFieldPopsize.setEnabled(true);
 //                TextFieldCr.setEnabled(true);
 //                TextFieldMr.setEnabled(true);
+               long startTime = System.nanoTime();
                 MatrixOperator matrix = new MatrixOperator();
                 K_Means km = new K_Means();
                 SimulatedAnnealing sa = new SimulatedAnnealing();
@@ -436,6 +463,31 @@ public class Form extends javax.swing.JFrame {
                 DBI dbi = new DBI();
                 dbi.hitung_dbi(data, centroid_akhir);
                 TextFieldDBI.setText(String.valueOf(dbi.get_dbi()));
+                ScrollPanelCentroid.setText("");
+                for (int i = 0; i < centroid_akhir.size(); i++) {
+                for (int j = 0; j < centroid_akhir.get(i).size(); j++) {
+                ScrollPanelCentroid.append(centroid_akhir.get(i).get(j).toString() + "\t");
+                }
+                ScrollPanelCentroid.append("\n");
+                }
+                waktuKomputasi.setText("");
+                long stopTime = System.nanoTime();
+                long elapsedTime = stopTime - startTime;
+
+                // 1 second = 1_000_000_000 nano seconds
+                double elapsedTimeInSecond = (double) elapsedTime / 1000000000;
+
+                // TimeUnit
+                long convert = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
+
+                waktuKomputasi.setText(String.valueOf(convert));
+                System.out.println("Waktu komputasi: " + convert);
+                
+                Iterasi.setText(String.valueOf(km.get_maks_iterasi()));
+                System.out.println("Jumlah Iterasi: " + km.get_maks_iterasi());
+                
+                ArrayList<ArrayList> hasil_clustering = km.get_hasil_cluster();
+                populateTable(hasil_clustering);          
 
             } else if (RadioButtonSAKMeans.isSelected()) {
                 TextFieldIterasi.setEnabled(true);
@@ -477,7 +529,7 @@ public class Form extends javax.swing.JFrame {
                 }
 
             } else if (RadioButtonSVDKmeans.isSelected()) {
-
+                long startTime = System.nanoTime();
                 MatrixOperator matrix = new MatrixOperator();
                 K_Means km = new K_Means();
                 SimulatedAnnealing sa = new SimulatedAnnealing();
@@ -514,6 +566,31 @@ public class Form extends javax.swing.JFrame {
                 DBI dbi = new DBI();
                 dbi.hitung_dbi(data_hsl_reduksi, centroid_akhir);
                 TextFieldDBI.setText(String.valueOf(dbi.get_dbi()));
+                ScrollPanelCentroid.setText("");
+                for (int i = 0; i < centroid_akhir.size(); i++) {
+                    for (int j = 0; j < centroid_akhir.get(i).size(); j++) {
+                        ScrollPanelCentroid.append(centroid_akhir.get(i).get(j).toString() + "\t");
+                    }
+                    ScrollPanelCentroid.append("\n");
+                }
+                waktuKomputasi.setText("");
+                long stopTime = System.nanoTime();
+                long elapsedTime = stopTime - startTime;
+
+                // 1 second = 1_000_000_000 nano seconds
+                double elapsedTimeInSecond = (double) elapsedTime / 1000000000;
+
+                // TimeUnit
+                long convert = TimeUnit.SECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
+
+                waktuKomputasi.setText(String.valueOf(convert));
+                System.out.println("waktu komputasi: "+convert);
+                
+                Iterasi.setText(String.valueOf(km.get_maks_iterasi()));
+                System.out.println("jumlah iterasi: "+km.get_maks_iterasi());
+                
+                ArrayList<ArrayList> hasil_clustering = km.get_hasil_cluster();
+                populateTable(hasil_clustering);
 
             } else if (RadioButtonSVDSAKMeans.isSelected()) {
 //                MatrixOperator matrix = new MatrixOperator();
@@ -577,6 +654,39 @@ public class Form extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TextFieldTemperaturAwalActionPerformed
 
+    private void IterasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IterasiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IterasiActionPerformed
+
+    private void waktuKomputasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waktuKomputasiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_waktuKomputasiActionPerformed
+
+    void populateTable(ArrayList<ArrayList> hasilClustering) {
+        DefaultTableModel tabelModel = new DefaultTableModel(getMaxCluster(hasilClustering), hasilClustering.size());
+        for (int j = 0; j < tabelModel.getColumnCount(); j++) {
+            for (int i = 0; i < tabelModel.getRowCount(); i++) {
+                try {
+                    tabelModel.setValueAt(bobot.getListDocument().
+                            get(Integer.parseInt(hasilClustering.get(j).get(i).toString())).getJudul(), i, j);
+                } catch (IndexOutOfBoundsException e) {
+                }
+            }
+        }
+
+        jTableCluster.setModel(tabelModel);
+
+    }
+      int getMaxCluster(ArrayList<ArrayList> hasilClustering) {
+        int max = hasilClustering.get(0).size();
+        for (int i = 0; i < hasilClustering.size(); i++) {
+            if (hasilClustering.get(i).size() > max) {
+                max = hasilClustering.get(i).size();
+            }
+        }
+
+        return max;
+    }
     /**
      * @param args the command line arguments
      */
@@ -615,6 +725,7 @@ public class Form extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonMuat;
     private javax.swing.JButton ButtonMulai;
+    private javax.swing.JTextField Iterasi;
     private javax.swing.JLabel LabelCentroid;
     private javax.swing.JLabel LabelDBI;
     private javax.swing.JLabel LabelHasilCluster;
@@ -630,7 +741,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JRadioButton RadioButtonSAKMeans;
     private javax.swing.JRadioButton RadioButtonSVDKmeans;
     private javax.swing.JRadioButton RadioButtonSVDSAKMeans;
-    private javax.swing.JScrollPane ScrollPanelCentroid;
+    private javax.swing.JTextArea ScrollPanelCentroid;
     private javax.swing.JTextField TextFieldDBI;
     private javax.swing.JTextField TextFieldIterasi;
     private javax.swing.JTextField TextFieldJlhK;
@@ -639,8 +750,10 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroupMetodeCluster;
     private javax.swing.JTextField folderPath;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableCluster;
     private javax.swing.JTextField waktuKomputasi;
