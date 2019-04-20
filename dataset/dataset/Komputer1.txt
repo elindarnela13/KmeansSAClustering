@@ -1,0 +1,310 @@
+APLIKASI PENENTUAN DOSEN PENGUJI
+SKRIPSI MENGGUNAKAN METODE TF-IDF DAN
+VECTOR SPACE MODEL
+Pada Sekolah Tinggi Teknik PLN (STT-PLN) penentuan dosen penguji tugas akhir atau skripsi
+merupakan tugas dari sekretaris jurusan. Penelitian ini bertujuan untuk memberikan alternative
+untuk menentukan dosen penguji skripsi. Metode yang di terapkan untuk membangun system ini
+adalah text mining, TF-IDF dan Vector Space Model (VSM). Text mining untuk melakukan
+processing data, dimana data yang akan diproses adalah judul dan abstrak skripsi, sedangkan
+VSM untuk melakukan pengklasifikasian kompetensi, penelitian ini dapat merekomendasikan
+tiga dosen untuk menjadi dosen penguji skripsi berdasarkan kecocokan antara judul dan
+abstrak dengan klasifikasi Pada penelitian ini, penulis menggunakan Model pengembangan
+perangkat lunak CRISP-DM. Adapun fase yang dimiliki oleh CRISP-DM adalah fase
+pemahaman bisnis, fase pemahanman data, fase pengolahan data, fase permodelan, fase
+evaluasi dan fase penyebaran. Hasil dari penelitian ini memiliki akurasi 93,22%. 1. PENDAHULUAN
+Tugas akhir Skripsi merupakan perwujudan kualitas akademik mahasiswa dan sebagai
+penelitian syarat kelulusan. Dalam pengujian skripsi, penentuan dosen penguji merupakan hal
+yang penting, idealnya dosen penguji memiliki kompetensi yang sesuai dengan topik skripsi
+yang diteliti oleh mahasiswa agar didapat hasil pengujian yang maksimal.
+Dalam kasus ini peneliti mengambil tempat penelitian di Teknik Informatika STT-PLN,
+dimana proses pemilihan dosen penguji dipilih secara langsung oleh Sekretaris jurusan dengan
+di data pada aplikasi Microsoft Excel. Tidak adanya sistem yang digunakan menjadikan tugas
+sekretaris jurusan dalam menentukan dosen penguji yang sesuai antara judul atau tema tugas
+akhir dengan konsentrasi dosen penguji menjadi kurang akurat dan membutuhkan waktu proses.
+Dalam proses pelaksanaan pengujian atau sidang skripsi terdapat 3 (tiga) orang dosen penguji
+yang terdiri dari ketua penguji, sekretaris penguji dan penguji.
+Syarat utama kompetensi dosen penguji yang sesuai dengan topik yang diangkat dalam
+skripsi, pada penelitian memberikan alternatif keputusan dalam menentukan dosen penguji
+skripsi yang akan di ujikan memiliki kesesuaian terhadap kompetensi. Penerapan text mining
+dapat digunakan untuk menganalisa data yang diperoleh dari judul dan abstrak skripsi
+mahasiswa. Untuk menerapkan text mining, dibutuhkan skripsi mahasiswa yang sebelumnya,
+sehingga dapat melihat pola-pola data yang terdahulu untuk dijadikan sebuah pengetahuan baru.
+Penerapan algoritma TF-IDF (Term Frequency-Inverse Document Frequency) dan VSM
+(Vector Space Model) yang dapat digunakan untuk mengklasifikasikan dosen penguji yang
+sesuai antara topik skripsi dengan kompetensi dosen, yang dilakukan dengan ekstraksi teks pada
+dokumen. Penelitian sebelumnya yang dilakukan sebelumnya koordinator tugas akhir dalam
+menentukan dosen pembimbing dan penguji skripsi [1]. Hasil penelitian membantu koordinator
+tugas akhir dalam menentukan dosen pembimbing dan penguji skripsi. Metode-metode yang
+digunakan untuk membangun sistem ini adalah Text Mining, k-Nearest Neighbor (k-NN), dan
+Simple Additive Weighting (SAW) 2. KAJIAN PUSTAKA
+Penelitian yang berjudul “Analysis of Vector Space Model in Information Retrieval” [2],
+Menyajikan pendekatan yang berbeda dari model ruang vektor untuk menghitung nilai
+kesamaan hit dari mesin pencari dan yang lebih penting lagi, dirasakan bahwa penyelidikan ini
+akan menghasilkan pemahaman yang lebih jelas mengenai masalah dan masalah dalam
+menggunakan model ruang vektor dalam informasi. Pada penelitian ini menganalisis tiga
+pendekatan model ruang vektor untuk query uji coba. Nilai kemiripan dihitung dengan
+menggunakan tiga pendekatan model ruang vektor. Setelah mempertimbangkan persyaratan
+pembobotan dalam pengumpulan dokumen, kita dapat menghitung nilai kesamaan antara kueri
+dan dokumen. Peringkat dokumen tergantung pada nilai kesamaan nilai yang dihitung dengan
+pendekatan yang berbeda. Peringkat dokumen tergantung pada nilai kesamaan nilai yang
+dihitung dengan pendekatan yang berbeda Dari VSM. Nilai kesamaan yang dihitung dengan
+model penghitung waktu bagus untuk dokumen panjang namun model TF-IDF dan normalisasi
+memberikan hasil yang lebih baik. Model normalisasi juga menggunakan skema bobot global
+dan memberikan hasil yang sama untuk dokumen panjang dibandingkan dengan model TF-IDF.
+Jadi ketiga pendekatan model ruang vektor mungkin mendukung dokumen panjang yang berisi
+lebih banyak tampilan istilah kueri.
+Penelitian selanjutnya, berjudul “A Text Categorization Method using Extended Vector
+Space Model by Frequent Term Sets ”[3]. Penelitian ini membahas tentang pengkategorian teks,
+Sebuah batasan baru AD-Sup diperkenalkan untuk mengekstrak fitur diskriminatif dari
+rangkaian istilah yang sering digunakan untuk tugas klasifikasi. Hasil klasifikasi pada korpus
+Reuters-21578 dan WebKB menunjukkan bahwa kendala AD-Sup efektif untuk mengekstrak
+fitur yang berguna dan strategi kombinasi efektif untuk membangun ruang fitur yang lebih baik
+dan memperbaiki klasifikasi
+Pertambangan web mencakup tiga bagian yaitu penambangan struktur web, penambangan
+konten web, penambangan penggunaan web. Tujuan dari proses analisis lanjutan ini adalah
+untuk mengekstrak informasi dari kumpulan data dan mengubahnya menjadi struktur yang
+mudah dimengerti untuk digunakan lebih jauh. Data mining terdiri dari tiga langkah dasar
+Ekstrak informasi, memuat informasi & menampilkan informasi (out-put)[4]
+2.1 Text Mining
+Text mining merupakan salah satu bidang khusus dari data mining. Text mining dapat
+didefinisikan sebagai suatu proses menggali informasi dimana seseorang user berinteraksi
+dengan sekumpulan dokumen menggunakan tool analisis yang merupakan komponenkomponen
+dalam data mining [5]. Text mining digunakan untuk mengolah dokumen sebelum
+dilakukan proses similarity. Text mining merupakan proses ekstraksi pola (informasi dan
+pengetahuan yang berguna) dari sejumlah besar sumber data tak terstruktur. Text mining
+memiliki tujuan dan menggunakan proses yang sama dengan data mining, namun memiliki
+masukan yang berbeda.Masukan untuk Text mining adalah data yang tidak (atau kurang)
+terstruktur, seperti dokumen Word, PDF, kutipan teks, dll., sedangkan masukan untuk data
+mining adalah data yang terstruktur.
+2.2 Text Preprocessing
+Didalam proses Text mining terdapat proses Text Processing[6]. Preprocessing text
+merupakan tindakan menghilangkan karakter-karakter tertentu yang terkandung dalam
+dokumen, seperti koma, tanda petik dan lain-lain serta mengubah semua huruf kapital menjadi
+huruf kecil. Selain itu, dalam tahap text preprocessing ini dilakukan tokenization. Tokenization
+merupakan proses pengolahan token yang terdapat dalam rangkaian teks, sehingga dokumen
+akan dipecah-pecah menjadi term [7]. Text mining dalam prakteknya mencari pola-pola tertentu,
+mengasosiasikan suatu bagian teks dengan yang lain berdasarkan aturan-aturan tertentu, katakata
+yang dapat mewakili sehingga dapat dilakukan analisa keterhubungan antar satu dengan
+yang lain [5]. Berikut tahapan-tahapan proses didalam text mining: a. Tokenizing
+Tahap Tokenizing adalah tahap pemotongan tiap kata dalam kalimat atau parsing dengan
+menggunakan spasi sebagai delimiter yang akan menghasilkan token berupa kata. Pada
+tokenizing terdapat beberapa proses yang harus dilakukan yaitu merubah semua hruf
+besar menjadi kecil (text to lowercase). Proses selanjutnya adalah penguraian, proses
+penguraian yang dimaksud adalah membagi text menjadi kumpulan kata tanpa
+memperhatikan keterhubungan antara kata satu dengan kata lain serta peran dan posisinya
+pada kalimat.
+b. Filtering
+Tahap Filtering adalah tahap penyaringan kata yang didapat dari Tokenizing yang
+dianggap tidak penting atau tidak memiliki makna dalam proses Text mining yang disebut
+stopword. Stopword berisi katakata umum yang sering muncul dalam sebuah dokumen
+dalam jumlah banyak namun tidak memiliki kaitan dengan tema tertentu. Contoh
+stopwords adalah “yang”, “di”, ‘yang’, dll.
+c. Stemming
+Tahap stemming adala tahap mengembalikan kata-kata yang diperoleh dari hasil
+Filtering ke bentuk dasarnya, menghilangkan imbuhan awal (prefix) dan imbuhan akhir
+(sufix) sehingga didapat kata dasar.2.3 Pembobotan Kata (Term Weighting)
+Pembobotan kata sangat berpengaruh dalam menentukan keiripan antara dukumen
+dengan query. Apabila bobot tiap kata dapat ditentukan dengan tepat, diharapkan haisl
+perhitungan kemiripan teks akan menghasilkan perangkingan dokumen yang baik. Keberhasilan
+dari model ruang vector ditentukan oleh skema pembobotan terhadap suatu term baik untuk
+cakupan local maupun global, dan faktor normalisasi [8]. Pembobotan local hanya berpedoman
+pada frekuensi munculnya term dalam satu dokumen dan tidak melihat kemunculan term
+tersebut di dalam dokumen lainnya. Faktor yang memegang peranan penting dalam pembobotan
+kata yaitu :
+1. Term Frequency (tf)
+Pendekatan dalam pembobotan local yang paling banyak diterapkan adalah term
+frequency (tf). Factor ini menyatakan banyaknya kemunculan suatu kata dalam suatu dokumen.
+Semakin sering suatu kata muncul dalam sebuah dokumen, berarti semakin penting kata
+tersebut. Ada empat cara yang bisa digunakan untuk mendapatkan nilai TF:
+a. Raw Tf
+Nilai Tf sebuah term dihitung berdasarkan kemunculan term tersebut dalam dokumen.
+b. Logarithmic Tf
+Dalam memperoleh nilai Tf, cara ini menggunakan fungsi logaritmik dalam matematika. c. Binnary Tf
+Cara ini menghasilkan nilai Boolean berdasarkan kemunculan term pada dokumen
+tersebut. Akan bernilai 0 apabila term tidak ada pada sebuah dokumen, dan bernilai 1
+apabila term tersebut ada dalam dokumen. Sehingga banyaknya kemunculan term pada
+dokumen tidak berpengaruh.
+d. Augmented Tf
+TF = 0.5 + 0.5 x TFmax (TF)
+Nilai TF adalah jumlah kemunculan term pada sebuah dokumen. Nilai max(Tf) adalah
+jumlah kemunculan terbanyak term pada dokumen yang sama.
+Perhitungan Tf yang akan digunakan dalam implementasi sistem temu kembali informasi
+pada sistem yang penulis bangun adalah Raw Tf.
+2. Inverse Dokumen Frequency (IDF)
+Metode TF-IDF (Term Frequency Inverse Document Frequency) merupakan suatu cara
+untuk memberikan bobot hubungan suatu kata (term) terhadap dokumen. Metode ini
+menggabungkan dua konsep untuk perhitungan bobot yaitu, frekuensi kemunculan sebuah kata
+didalam sebuah dokumen tertentu dan inverse frekuensi dokumen yang menggandung kata
+tersebut [9]. Formula yang digunakan pada term frequency (tf), terdapat yaitu nilai tf diberikan
+berdasarkan jumlah kemunculan suatu kata di dokumen. Idf dihitung dengan formula sebagai
+berikut :Vector Space Model (VSM) sering digunakan untuk mempresentasikan sebuah dokumen
+dalam ruang vector. VSM merupakan model Information Retrieval yang mempresentasikan
+dokumen dan query sebagai vektor pada ruang multidimensi. Kesamaan suatu dokumen dengan
+query dapat diukur dengan vektor dokumen dan vektor query [7].
+Karakteristik model ruang vector antara lain :
+1. Model vector berdasarkan keyterm.
+2. Model vector mendukung partial matching (sebagian sesuai) dan penentuan peringkat
+dokumen.
+3. Prinsip dasar model vector adalah :
+a. Dokumen direpresentasikan dengan menggunakan vector keyterm.
+b. Ruang dimensi ditentukan oleh keyterms.
+c. Query direpresentasikan dengan menggunakan vector keyterm.
+d. Kesamaan dokumen keyterm dihitung berdasarkan jarak vector.
+4. Model ruang vector memerlukan :
+a. Bobot keyterm untuk vector dokumen.
+b. Normalisasi keyterm untuk vector dokumen.
+c. Normalisasi keyterm untuk vector query.
+d. Perhitungan jarak untuk vector dokumen keyterm.
+5. Kinerja model ruang vector :
+a. Efisien.
+b. Mudah dalam representasi.
+c. Dapat diimplementasikan pada document matching dan partial matching.
+Prosedur model ruang vector dapat dikelompokkan menjadi tiga tahap yaitu:
+1. Pengindeksan dokumen.
+2. Pembobotan indeks, untuk menghasilkan dokumen yang relevan.
+3. Memberikan peringkat dokumen berdasarkan ukuran kesamaan (similarity measure).
+Perhitungan kemiripan antara vektor dokumen dan vektor query dilihat dari sudut yang
+paling kecil. Sudut yang dibentuk oleh dua buah vektor dapat dihitung dengan melakukan inner
+product. Kemiripan antara vektor dokumen dan vektor query akan dihitung dengan pendekatan
+Cosine Similarity [8] Nilai relevansi (similarity) antara query dengan dokumen ke-j [9] adalah :Cross-Industry Standard Process for Data Mining (CRISP-DM) merupakan suatu standar
+yang telah dikembangkan pada tahun 1996 yang ditujukan untuk melakukan proses analisis dari
+suatu industri sebagai strategi pemecahan masalah dari bisnis atau unit penelitian.
+Terdapat enam fase pada CRISP-DM yaitu sebagai berikut :3.1 Analisa Kebutuhan
+Analisa kebutuhan merupakan tahapan awal penelitian. Pada tahap ini dilakukan analisa
+kebutuhan suatu data menggunakan metode CRISP-DM, dimana data akan diproses dengan
+melakukan beberapa tahapan seperti berikut:
+3.1.1 Business Understanding Phase (Fase Pemahaman Bisnis)
+Pada tahap ini akan di lakukan penentuan tujuan penelitian dan kebutuhan secara detail
+dalam lingkup bisnis atau unit penelitian secara keseluruhan. Menerjemahkan tujuan dan
+batasan menjadi formula dari permasalahan, pada penelitian ini memiliki tujuan untuk
+menciptakan alternative penentuan dosen penguji skripsi secara otomatis dan
+mengimplementasikan metode text mining yaitu TF-IDF dan VSM dalam menentukan dosen
+penguji skripsi yang sesuai antara kompetensi dosen dengan klasifikasi skripsi mahasiswa,
+dimana klasifikasi skripsi tersebut terdiri dari tiga kategori yaitu, sistem informasi (si), jaringan
+dan embedded. Penelitian ini dilaksanakan di Jurusan Teknik Informatika STT-PLN, waktu
+penelitian serta perancangan mulai pada bulan Maret 2017 hingga selesai.
+Pada tahap ini adalah tahap pengumpulan data, data diperoleh dari perpustakaan STTPLN
+dan jurusan Teknik Informatika STT-PLN. Pada penelitian ini data yang digunakan adalah
+59 data dari skripsi mahawiswa STT-PLN. Data yang diambil dari data skripsi adalah judul dan
+abstrak, yang mana judul dan abstrak tersebut akan diolah kembali agar menghasilkan suatu
+bobot tertentu. Data skripsi yang diambil merupakan data dari tahun 2013-2015, data dosen
+penguji dan mahasiswa juga dibutuhkan dalam proses penentuan ini, data dosen penguji
+diperlukan untuk menentukan dosen penguji yang tepat atau sesuai dengan klasifikasi skripsi
+a. Data skripsi yang akan digunakan Data Dosen penguji
+Data Penguji adalah nama-nama dosen yang dapat menjadi penguji di Teknik
+Informatika STT-PLN, dosen penguji terbagi menjadi tiga bagian yaitu, ketua penguji,
+sekretaris dan anggota penguji. Dosen yang dapat menjadi ketua penguji adalah dosen dengan
+jabatan lektor kepala dan lektor, untuk sekretaris, dosen yang dapat menjadi sekretaris adalah
+dosen dengan jabatan asisten ahli, sedangkan yang dosen yang digunakan dapat dilihat pada
+tabel 2 dibawah ini:Data Mahasiswa
+Data mahasiswa dibawah ini adalah data mahasiswa yang digunakan dalam penelitian ini
+Pada tahap ini merupakan persiapan data awal untuk diimplementasikan pada sebuah
+perangkat permodelan atau Data Transformation, dari penelitian ini 59 data skripsi yang di
+dapat akan di proses dan dihasilkan jenis kategorinya yang nanti akan dicocokan dengan
+kompetensi dosen penguji. Dokumen skripsi akan diolah menggunakan metode text
+preprocessing. Text preprocessing merupakan Tahap proses awal terhadap dokumen skripsi
+untuk mempersiapkan dokumen menjadi dokumen yang akan diolah lebih lanjut. Tahapan yang
+dilakukan secara umum adalah tokenizing, filtering, stemming.
+Pada proses tokenizing dilakukan pembacaan dokumen yang dimiliki dan memisahkan
+deretan kata didalam kalimat, paragraph atau dokumen menjadi token atau potongan kata
+tunggal. Tokenization dapat dilakukan dengan menghilangkan tanda baca dan memisahkannya
+per spasi. Tahapan ini juga menghilangkan karakter-karakter tertentu seperti tanda baca dan
+mengubah semua token ke bentuk huruf kecil (lower case). Alur pada tokenizing dapat dilihat
+dari flowchart dibawah ini
+Pada tahapan ini dilakukan pengambilan kata-kata penting dari hasil tokenizing dengan
+membuang stopwords (kata-kata yang kurang penting). Stopword dapat berupa subjek atau kata
+penghubung. Filtering dilakukan dengan menentukan term mana yang akan digunakan untuk
+merepresentasikan dokumen sehingga dapat mendeskripsikan isi dokumen dan membedakan
+dokumen tersebut. Alur dari Filtering dapat dilihat pada flowchart dibawah ini:
+Stemming merupakan suatu proses yang terdapat dalam sistem IR yang mentransformasi
+kata-kata yang terdapat dalam suatu dokumen ke kata-kata akarnya (root word) dengan
+menggunakan aturan-aturan tertentu. Pada tahap ini akan dicari root kata dari tiap kata hasil
+Filtering
+Pada tahap ini data yang telah dilakukan text preprocessing akan di proses ke tahap
+selanjutnya dengan beberapa permodelan. Permodelan ini dilakukan untuk mengoptimalkan
+hasil yang ingin dicapai. Metode yang digunakan dalam penelitian ini adalah TF-IDF dan VSM,
+Pada tahap ini merupakan tahap pembobotan dan pengklasifikasian data skripsi, dokumen yang
+sudah di proses dengan text preprocessing akan diberi bobot dan diliat jarak kemiripannya.
+Didalam penulisan ini ada tiga kategori yaitu sistem informasi, embedded dan jaringan dimana
+keyword dalam klasifikasi tersebut sudah ditentukan oleh penulis terlebih dahulu. alur atau
+flowchart metode tersebut dapat dilihat dari gambar disamping ini:Fase evaluasi merupakan tahap untuk mengetahui apakah model yang di rancang telah
+sesuai atau belum dengan tujuan pada fase awal. Tujuan awal di dirancangnya model ini yaitu
+agar menghasilkan nilai akurasi yang tinggi, sehingga dapat membuktikan bahwa penelitian
+yang dilakukan telah berhasil. Pada penelitian ini dilakukan beberapa cara untuk melihat nilai
+akurasi yang dihasilkan. Peneliti menggunakan cara perbandingan antara sistem yang telah
+dibangun dengan klasifikasi penentuan skripsi yang telah dilakukan berdasarkan hasil
+wawancara. diperoleh nilai akurasi antara sistem dan hasil dari wawancara memiliki nilai yang
+sama yaitu sebesar 93,22%. dengan tingkat error sebesar 6,78%. Hasil penjelasan perhitungan
+dijelaskan pada bab pembahasan. Dengan hasil yang diperoleh sama, sehingga dapat dibuktikan
+bahwa aplikasi yang dibangun dapat digunakan karena menghasilkan nilai akurasi yang tinggi.Rancang Bangun Penentuan Dosen Penguji Skripsi Dengan Menggunakan Metode TFIDF
+Dan Vector Space Model dapat digunakan oleh sekertaris jurusan, dosen dan mahasiswa.
+Secara garis besar, desain arsitektur Rancang Bangun Penentuan Dosen Penguji Skripsi dapat
+dilihat pada gambar dibawah ini:Gambar 6 menjelaskan desain arsitektur rancang bangun penentuan dosen penguji. Rancang
+bangun tersebut dapat diakses oleh tiga jenis user, yaitu: Sekertaris Jurusan sebagai admin,
+mahasiswa dan dosen. Setiap user memiliki hak akses tersendiri terhadap aplikasi. Metode TFIDF
+dan Vector Space Model di diimplementasikan kedalam rancang bangun untuk menentukan
+pilihan atau hasil rekomendasi dari dosen penguji yang sesuai antara kompetensi dosen dan
+topik skripsi. Berikut adalah gambaran dan rincian kegunaan aplikasi:Saat aplikasi pertama kali dijalankan, user akan diminta untuk memasukkan username
+dan password hal ini digunakan untuk validasi apakah user terdaftar dalam database atau tidak.
+User yang dapat login adalah user yang telah terdaftar sebagai dosen dan mahasiswa mengikuti
+sidang skripsi. Dalam aplikasi ini terdapat tiga buah user yaitu sekertaris jurusan (sekjur),
+mahasiswa dan dosen, masing-masing akan memiliki menu yang berbeda. Interface halaman
+login dapat dilihat pada gambar dibawah ini:a. Halaman Utama
+Pada halaman utama menampilkan empat buah icon, dimana jika pada icon di click maka user
+akan masuk kedalam tampilan form yang iconnya telah dipilih. b. Halaman Data Dosen
+Pada halaman data dosen, terdapat tabel Informasi data dosen seperti nim, nama, nomor hp,
+jabatan, kompetensi dan action. Sekertaris jurusan memiliki hak untuk menambah, mengedit
+dan menghapus data dosen. Pada halaman dosen ini dilengkapi juga fitur import kedalam csv
+dan print.c. Halaman Data Mahasiswa
+Pada halaman data mahasiswa, terdapat tabel Informasi data mahasiswa seperti nim, nama,
+pembimbing 1 dan pembimbing 2. Sekertaris jurusan memiliki hak untuk menambah, mengedit
+dan menghapus data mahasiswa. Pada halaman dosen ini dilengkapi juga fitur import kedalam
+csv dan print.d. Halaman Data Judul
+Pada halaman data mahasiswa, terdapat tabel Informasi judul, dimana terdapat data nik, id judul
+judul dan action, data ini didapat dari hasil penginputan judul dan abstrak yang sudah dilakukan
+oleh mahasiswa.a. Halaman Utama Mahasiswa
+Pada halaman utama menampilkan dua buah icon, dimana jika pada icon di click maka user
+akan masuk menampilkan form berdasarkan icon yang dipilih.b. Halaman Input Judul
+Pada halaman input judul, mahasiswa akan menginputkan data judul dan abstrak skripsi, yang
+nantinya akan diolah oleh system dengan metode TF-IDF dan VSM.c. Halaman Data Judul
+Mahasiswa dapat melihat judul dan abstrak yang sudah diinputkan, dan mengedit judul dan
+abstrak jika ditemukan kesalahan, dapat dilihat seperti gambar dibawah ini:d. Halaman Konfirmasi
+Pada halaman konfirmasi mahasiswa dapat melihat data dosen yang akan menguji siding
+skripsinya.Pada penelitian ini, dosen hanya bisa melihat mahasiswa yang akan diuji, dapat dilihat seperti
+gambar dibawah ini:Pengumpulan data dilakukan dengan mengambil skripsi mahasiswa Teknik Informatika
+STT-PLN di perpustakaan, dan wawancara. Wawancara dilakukan kepada sekretaris jurusan
+Teknik Informatika STT-PLN, dengan fokus terhadap sistem berjalan dengan penentuan jadwal
+sidang skripsi dan tim dosen penguji. Hasil dari wawancara bahwa proses pemilihan dosen
+penguji di jurusan teknik informatika masih secara subjektif, yaitu penentuan dosen penguji
+dipilih secara langsung oleh Sekretaris jurusan. Belum adanya sistem yang digunakan
+menjadikan tugas sekretaris jurusan dalam menentukan dosen penguji yang sesuai antara judul
+atau tema skripsi dengan konsentrasi dosen penguji menjadi tidak relevan dengan kompetensi
+yang dimiliki dosen penguji. Data set yang diperoleh akan dijadikan sebagai data training. Data-
+data tersebut dikumpulkan kemudian diolah menggunakan text preprocessing, Text
+preprocessing merupakan tahap proses awal terhadap dokumen skripsi untuk mempersiapkan
+dokumen menjadi dokumen yang akan diolah lebih lanjut. Tahapan text preprocessing yang
+dilakukan adalah tokenizing, filtering, stemming. Kemudian dokumen yang sudah diproses akan
+diberi bobot dengan menggunakan metode TF-IDF, setelah itu untuk menentukan klasifikasi
+dari dokumen skripsi digunakanlah metode Vector Space Model. Kemudian setelah didapat kan
+klasifikasi dokumen skripsi, akan dicocokan antara kompetensi dosen penguji dan klasfikasi
+dokumen skripsi. Terdapat tiga dosen penguji skripsi yang terbagi atas ketua, sekretaris dan
+penguji. Masing-masing posisi memiliki syarat-syarat yang berbeda. Ketua harus memiliki
+jabatan lektor kepala atau lektor, untuk sekretaris jabatan yang dimiliki dosen adalah asisten ahli
+sedangkan jabatan untuk anggota penguji bisa jabatan apa saja seperti lektor kepala, lektor,
+asisten ahli dan tenaga ahli.
+Pada proses penentuan dosen penguji dilakukan dengan melakukan perhitungan
+menggunakan Microsoft excel dan kemudian membandingkan hasilnya dengan perhitungan
+yang telah dilakukan oleh sistem di aplikasi. Penentuan relevansi antara penentuan dosen
+penguji di uji dengan data testing dari 59 dokumen dan hasil klasifikasi yang didapat dari
+sistem, kemudian menghitung tingkat keakurasiannya, dimana diperoleh yaitu:Dari hasil pengujian, keakuratan terhadap kesesuaian kompetensi dosen penguji yang
+didapat oleh aplikasi ini mencapai 93,22%. Dimana dengan jumlah pengujian 59 contoh data
+training, dengan tingkat error sebesar 6,78% terdapat 4 (empat) buah data training yang
+memiliki nilai belum tepat dalam penentuan kesesuaian kompetensi dosen penguji.
+Dari kesimpulan ini dapat disimpulkan bahwa :
+1. Penentuan dosen penguji dapat dilakukan dengan menggunakan metode TF-IDF dan
+VSM, perhitungan data skripsi dilakukan dengan menggunakan Microsoft excel.
+2. Penentuan dosen penguji skripsi dapat dilakukan berdasarkan kompetensi, dengan
+menerapkan metode TF-IDF dan VSM kedalam sistem
+3. Dari hasil pengujian TF-IDF dan VSM dengan 59 data judul dapat merekomendasikan
+tiga dosen penguji skripsi, dengan syarat minimal satu orang memiliki kompetensi yang
+sama dengan topik skripsi dengan menghasilkan akurasi 93,22%. 

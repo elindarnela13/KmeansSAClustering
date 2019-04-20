@@ -67,15 +67,15 @@ public class SimulatedAnnealing {
         return sum;
     }
 
-    public double temperatur(double ti, double t_rendah) {
+    public double temperatur(double ti, double t_rendah,int iterasi) {
         double new_temperatur;
-        int i = 0;
-        int numTemp = 200;
+        double i = iterasi;
+        double numTemp = 200;
         double acc_ratio = 0.75;
 
-        new_temperatur = (ti * acc_ratio) * ((t_rendah / ti) * 1 / numTemp);
-//        new_temperatur= Math.pow((ti*acc_ratio)*(t_rendah/ti), 1/numTemp);
-
+//        new_temperatur = (ti * acc_ratio) * ((t_rendah / ti) * i / numTemp);
+        new_temperatur= Math.pow((ti*acc_ratio)*(t_rendah/ti), i/numTemp);
+        System.out.println("new temperatur = "+new_temperatur);
         return new_temperatur;
     }
 
@@ -94,6 +94,7 @@ public class SimulatedAnnealing {
 
         int cluster = 3;
         int maxIterasi = 20;
+        int iterasi =0;
         double ti = 100;
         double t_rendah = 0.9;
         double minimum = matrix.nilai_minimum(data);
@@ -128,8 +129,12 @@ public class SimulatedAnnealing {
         //step 3
         ArrayList<ArrayList> state_update = new ArrayList<ArrayList>();
         ArrayList<ArrayList> label_state_update = new ArrayList<ArrayList>();
+        
         while (ti >= t_rendah) {
-
+            iterasi++;
+            System.out.println("ti = "+ ti);
+            System.out.println("t_rendah = "+t_rendah);
+            System.out.println("=============\n\n");
             for (int i = 0; i < maxIterasi; i++) {
 
                 System.out.println("energi_awal");
@@ -205,12 +210,13 @@ public class SimulatedAnnealing {
                     }
 
                 }
-                System.out.println("Temperatur");
-                System.out.println(ti);
-
-                ti = temperatur(ti, t_rendah);
-
+                
             }
+            System.out.println("ti = "+ti);
+            System.out.println("t_rendah ="+t_rendah);
+            ti = temperatur(ti, t_rendah,iterasi);
+            System.out.print("\nTemperatur : ");
+            System.out.print(ti);
 //         state_hasil_SA = new ArrayList<ArrayList<ArrayList>>(new_state);     
 //
 //            ArrayList<ArrayList> centroid_fix=kromosom_hasil_mutasi.get(0);

@@ -95,6 +95,7 @@ public class Form extends javax.swing.JFrame {
         jTableCluster = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         ButtonMuat.setText("Muat");
         ButtonMuat.addActionListener(new java.awt.event.ActionListener() {

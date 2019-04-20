@@ -1,0 +1,146 @@
+Sebagai pihak yang menjalankan roda pemerintahan, pembangunan, dan pelayanan masyarakat, Pemerintah Daerah (Pemda) dituntut untuk mewujudkan transparansi dan akuntabilitas terhadap pengelolaan keuangannya agar tercipta pemerintahan yang bersih. Salah satu upaya konkrit yang dilakukan adalah dengan menyajikan Laporan Keuangan Pemerintah Daerah (LKPD) yang disusun berdasarkan Standar Akuntansi Pemerintahan (SAP). Laporan keuangan yang dibuat Pemda setidaknya meliputi, Laporan Realisasi Anggaran, Neraca, Laporan Arus Kas, dan Catatan atas Laporan Keuangan. Pengungkapan dalam laporan keuangan dapat dikelompokkan menjadi dua, yaitu pengungkapan wajib (mandatory disclosure) dan pengungkapan sukarela (voluntary disclosure) (Suhardjanto dan Yulianingtyas, 2011). Mandatory disclosure merupakan pengungkapan informasi yang wajib dikemukakan sesuai dengan peraturan yang telah ditetapkan oleh badan otoriter. Voluntary disclosure merupakan pengungkapan yang disajikan diluar item-item yang wajib diungkapkan sebagai tambahan informasi bagi pengguna laporan keuangan. Tingkat pengungkapan wajib LKPD terhadap SAP di Indonesia masih rendah, rata-rata sebesar 35,45% (Liestiani 2008), 22% (Lesmana 2010), dan 51,56% (Suhardjantoetal 2010). Hal ini menunjukkan bahwa pemerintah daerah belum sepenuhnya mengungkapkan item pengungkapan wajib dalam laporan keuangannya. Kondisi tersebut membuat peneliti tertarik untuk menganalisis lebih lanjut mengenai faktor-faktor yang memengaruhi pengungkapan wajib LKPD terhadap SAP. Penelitian ini menggunakan mandatory disclosure karena membandingkan antara pengungkapan dalam LKPD dengan yang seharusnya diungkapkan berdasarkan SAP. Patrick (2007) menemukan bahwa ukuran, kesempatan berinovasi, diferensiasi fungsional, spesialisasi pekerjaan, ketersediaan slack resources, dan pembiayaan utang merupakan karakteristik yang memiliki asosiasi positif terhadap penerapan inovasi administrasi GASB 34, sedangkan intergovernmental revenue memiliki asosiasi negatif. Liestiani (2008) menemukan bahwa kekayaan, kompleksitas pemerintahan, dan jumlah temuan audit memengaruhi tingkat pengungkapan LKPD, sedangkan Lesmana (2010) menemukan bahwa umur Pemda dan rasio kemandirian keuangan daerah berpengaruh positif terhadap tingkat pengungkapan wajib LKPD. Hasil berbeda terdapat pada penelitian Suhardjanto et al. (2010) dengan menggunakan modifikasi model Patrick (2007) yang menemukan bahwa dana perimbangan dan latar belakang bupati merupakan prediktor yang signifikan terhadap kepatuhan pengungkapan SAP yang wajib. Perbedaan penelitian ini dengan penelitian sebelumnya adalah dalam penelitian ini menggunakan butir checklist pengungkapan berdasarkan Standar Akuntansi Pemerintahan (PP No. 24/2005) sebanyak 264 butir yang dibagi dalam 5 (lima) kategori, yaitu Variabel rasio kemandirian keuangan
+daerah tidak berpengaruh signifikan terhadap
+tingkat pengungkapan wajib laporan keuangan
+Pemda kabupaten/kota di Indonesia. Hasil
+ini tidak sejalan dengan Lesmana (2010)
+yang menyatakan bahwa rasio kemandirian
+keuangan Pemda berpengaruh terhadap
+tingkat pengungkapan wajib LKPD. Semakin
+tinggi rasio kemandirian keuangan Pemda
+menunjukkan semakin mandiri Pemda dalam
+membiayai sendiri kegiatan pemerintahan,
+pembangunan, dan pelayanan kepada masyarakat
+sehingga tingkat ketergantungan kepada
+pihak eksternal menjadi rendah. Hal inilah
+yang membuat Pemda tidak termotivasi
+untuk meningkatkan pengungkapan laporan
+keuangannya karena rendahnya tuntutan
+transparansi dan akuntabilitas LKPD dari
+pihak eksternal.
+(i) penyajian informasi tentang kebijakan
+fiskal/keuangan, ekonomi makro, dan pencapaian
+target peraturan daerah APBD;
+(ii) ikhtisar pencapaian kinerja keuangan
+selama tahun pelaporan; (iii) dasar penyajian
+laporan keuangan, pengungkapan kebijakan
+akuntansi keuangan, dan penjelasan setiap
+pos pada laporan keuangan (Neraca, Laporan
+Realisasi Anggaran, dan Laporan Arus Kas);
+(iv) pengungkapan informasi yang diharuskan
+oleh Pernyataan SAP yang belum disajikan
+dalam lembar muka laporan keuangan;
+(v) pengungkapan-pengungkapan lainnya.
+Semakin banyak butir checklist yang relevan
+maka hasil persentase pengungkapan
+LKPD semakin mencerminkan kepatuhan
+pemerintah daerah dalam menyajikan laporan
+keuangannya sesuai dengan standar akuntansi
+pemerintahan. Data yang digunakan dalam
+penelitian ini adalah LKPD tahun anggaran
+2008 dan 2009. Penelitian ini akan menguji
+secara komprehensif karakteristik Pemda yang
+diduga memengaruhi tingkat pengungkapan
+wajib LKPD, yang pada penelitian sebelumnya
+diteliti secara terpisah. Karakteristik Pemda
+yang digunakan dalam penelitian ini terdiri
+dari ukuran Pemda, ukuran legislatif, umur
+administratif Pemda, kekayaan Pemda,
+diferensiasi fungsional, spesialisasi pekerjaan,
+dan rasio kemandirian keuangan daerah
+dan lingkungan eksternal yang terdiri dari
+intergovernmental revenue.
+Hasil penelitian ini menunjukkan bahwa
+umur administratif, kekayaan pemerintah
+daerah, dan ukuran legislatif berpengaruh
+positif terhadap tingkat pengungkapan
+LKPD, sedangkan intergovernmental revenue
+memiliki pengaruh negatif. Penelitian
+ini diharapkan dapat menjadi bahan masukan
+kepada pemerintah daerah agar
+memperbaiki tingkat pengungkapan laporan
+keuangan pemerintah daerah sehingga dapat
+meningkatkan transparansi dan akuntabilitas
+pengelolaan keuangannya demi terwujudnya
+pemerintahan yang bersih. Penelitian ini akan menggunakan
+sampel Pemda Kabupaten/Kota di Indonesia
+untuk tahun anggaran 2008-2009 yang telah
+diaudit oleh BPK RI dan memiliki data yang
+lengkap terkait dengan variabel-variabel yang
+digunakan dalam penelitian ini. Pemilihan
+sampel dilakukan dengan cara purposive
+sampling. Kriteria-kriteria atas sampel dalam
+penelitian ini adalah sebagai berikut:
+1. Laporan Keuangan Pemda (LKPD)
+Kabupaten/Kota pada tahun 2008-2009
+yang telah diaudit oleh BPK.
+2. Memiliki data yang lengkap untuk
+pengukuran keseluruhan variabel:
+a. Menyediakan empat komponen LKPD,
+yaitu Laporan Realisasi Anggaran,
+Neraca, Laporan Arus Kas, dan Catatan
+atas Laporan Keuangan.
+b. Menyediakan data jumlah SKPD
+sebagai entitas akuntansi tahun 2008
+dan 2009 pada LKPD/Laporan Hasil
+Pemeriksaan Sistem Pengendalian
+Internal
+c. Menyediakan data latar belakang
+Kepala Daerah dan/atau Wakil Kepala
+Daerah tahun 2008-2009.
+d. Menyediakan data jumlah anggota
+DPRD tahun 2008-2009 pada Daerah
+Dalam Angka (DDA) masing-masing
+Pemda atau melalui situs resmi Pemda.
+e. Menyediakan data umur administratif
+Pemda yang diukur dari undangundang
+pembentukannya sampai
+dengan tahun 2008 dan 2009.
+Berdasarkan kriteria-kriteria pemilihan
+sampel diatas, maka sampel yang terpilih
+dan digunakan dalam penelitian ini adalah
+sebanyak 310 Laporan Keuangan Pemda Penelitian ini bertujuan untuk menguji
+dan menganalisis pengaruh karakteristik
+Pemda terhadap tingkat pengungkapan
+Laporan Keuangan Pemda Kabupaten/Kota di
+Indonesia pada tahun anggaran 2008 dan 2009.
+Rata-rata tingkat pengungkapan Laporan
+Keuangan Pemda (LKPD) Kabupaten/Kota di
+Indonesia selama periode 2008-2009 adalah
+sebesar 52,09%. Tingkat pengungkapan
+LKPD berdasarkan SAP di Indonesia sudah
+mulai ada peningkatan dari tahun-tahun
+sebelumnya meskipun belum signifikan.
+Adanya peningkatan dalam pengungkapan
+laporan keuangan Pemda menunjukkan bahwa
+Pemda berusaha untuk terus memperbaiki
+kualitas laporan keuangannya. Hasil penelitian
+ini menemukan bahwa dari 9 (sembilan)
+variabel yang diuji, hanya 4 (empat) variabel
+independen yang memberikan pengaruh yang
+signifikan terhadap tingkat pengungkapan
+wajib LKPD pada tahun 2008-2009, yaitu
+ukuran legislatif, umur administratif Pemda,
+kekayaan Pemda, dan intergovernmental
+revenue. Variabel independen lainnya, yaitu
+ukuran Pemda, diferensiasi fungsional,
+spesialisasi pekerjaan, pembiayaan utang,
+dan rasio kemandirian keuangan daerah tidak
+terbukti mempunyai pengaruh terhadap tingkat
+pengungkapan Laporan Keuangan Pemda
+Kabupaten/Kota di Indonesia tahun anggaran
+2008-2009.
+Penelitian ini juga memiliki keterbatasan
+yang memerlukan perbaikan dalam penelitianpenelitian
+selanjutnya. Pertama, menggunakan
+periode penelitian yang pendek, hanya
+tahun 2008 dan 2009. Penelitian-penelitian
+selanjutnya diharapkan menggunakan data
+LKPD dalam pengamatan yang lebih panjang
+sehingga dapat memberikan gambaran yang
+lebih terkini dari praktik pengungkapan
+laporan keuangan Pemda di Indonesia. Kedua,
+karakteristik Pemda yang digunakan dalam
+penelitian ini hanya menjelaskan sebagian
+kecil dari faktor-faktor yang memengaruhi
+pengungkapan laporan keuangan Pemda, yang
+berarti masih ada faktor-faktor lain yang dapat menjelaskan tingkat pengungkapan laporan keuangan Pemda yang tidak dimasukkan kedalam penelitian ini. Penelitian-penelitian selanjutnya diharapkan menambah variabel karakteristik Pemda yang diduga memiliki pengaruh terhadap tingkat pengungkapan laporan keuangan Pemda, misalnya opini audit, jumlah temuan pemeriksaan, dan tingkat penyimpangan. Ketiga, penelitian penelitian selanjutnya diharapkan dapat meneliti tingkat pengungkapan wajib LKPD berdasarkan Standar Akuntansi Pemerintahan yang diatur dalam Peraturan Pemerintahan No. 71 Tahun 2010 jika sudah diterapkan dalam Pemerintahan.
