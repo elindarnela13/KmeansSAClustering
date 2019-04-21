@@ -67,15 +67,15 @@ public class SimulatedAnnealing {
         return sum;
     }
 
-    public double temperatur(double ti, double t_rendah,int iterasi) {
+    public double temperatur(double ti, double t_rendah, int iterasi) {
         double new_temperatur;
         double i = iterasi;
         double numTemp = 200;
         double acc_ratio = 0.75;
 
 //        new_temperatur = (ti * acc_ratio) * ((t_rendah / ti) * i / numTemp);
-        new_temperatur= Math.pow((ti*acc_ratio)*(t_rendah/ti), i/numTemp);
-        System.out.println("new temperatur = "+new_temperatur);
+        new_temperatur = Math.pow((ti * acc_ratio) * (t_rendah / ti), i / numTemp);
+        System.out.println("new temperatur = " + new_temperatur);
         return new_temperatur;
     }
 
@@ -94,7 +94,7 @@ public class SimulatedAnnealing {
 
         int cluster = 3;
         int maxIterasi = 20;
-        int iterasi =0;
+        int iterasi = 0;
         double ti = 100;
         double t_rendah = 0.9;
         double minimum = matrix.nilai_minimum(data);
@@ -129,11 +129,11 @@ public class SimulatedAnnealing {
         //step 3
         ArrayList<ArrayList> state_update = new ArrayList<ArrayList>();
         ArrayList<ArrayList> label_state_update = new ArrayList<ArrayList>();
-        
+        double energi = 0;
         while (ti >= t_rendah) {
             iterasi++;
-            System.out.println("ti = "+ ti);
-            System.out.println("t_rendah = "+t_rendah);
+            System.out.println("ti = " + ti);
+            System.out.println("t_rendah = " + t_rendah);
             System.out.println("=============\n\n");
             for (int i = 0; i < maxIterasi; i++) {
 
@@ -146,39 +146,33 @@ public class SimulatedAnnealing {
                     //update
                     //state_update 
                     ArrayList<ArrayList> update_state = new ArrayList<>();
+                    
                     if (i == 0) {
-                        if (j > 0) {
-                            update_state = ed.update_centeroid(label_state_update, data);
-                        } else {
+                        if (j == 0) {
                             update_state = ed.update_centeroid(label_state, data);
-                        }
-                    } else {
+                        } else {      
                             update_state = ed.update_centeroid(label_state_update, data);
+                        }
+                    }else { // i > 0
+                        System.out.println("energi = "+energi);
+                        if(energi == 0){
+                            
+                        }else{
+                            update_state = ed.update_centeroid(label_state_update, data);
+                        }
+
                     }
 
-//                    if (i==0 && j==0) {
-//                        update_state = ed.update_centeroid(label_state, data);
-//                    }else{
-//                        update_state = ed.update_centeroid(label_state_update, data);
-//                    }
-
-                    System.out.println("update_state");
+                    System.out.println("update_state : ");
                     System.out.println(update_state);
-
+                    
                     ArrayList<ArrayList> update_state_row = update_state.get(j);
-
-                    System.out.println("update_state_row");
+                    
+                    System.out.println("update_state_row : ");
                     System.out.println(update_state_row);
 
                     new_state.set(j, update_state_row);
 
-//                    for(int k=0; k<state.size(); k++){
-//                        if (k>0) {
-//                            new_state.add(state.get(k));
-//                        }else{
-//                            new_state.add(update_state_row);
-//                        }
-//                    }
                     System.out.println("state baru");
                     System.out.println(new_state);
                     temp = new_state;
@@ -191,7 +185,7 @@ public class SimulatedAnnealing {
                     double energi_akhir = sum_araylist(ji_update);
                     System.out.println("energi akhir");
                     System.out.println(energi_akhir);
-                    double energi = energi_akhir - energi_awal;
+                    energi = energi_akhir - energi_awal;
                     energi_awal = energi_akhir;
                     System.out.println("perubahan energi");
                     System.out.println(energi);
@@ -210,11 +204,11 @@ public class SimulatedAnnealing {
                     }
 
                 }
-                
+
             }
-            System.out.println("ti = "+ti);
-            System.out.println("t_rendah ="+t_rendah);
-            ti = temperatur(ti, t_rendah,iterasi);
+            System.out.println("ti = " + ti);
+            System.out.println("t_rendah =" + t_rendah);
+            ti = temperatur(ti, t_rendah, iterasi);
             System.out.print("\nTemperatur : ");
             System.out.print(ti);
 //         state_hasil_SA = new ArrayList<ArrayList<ArrayList>>(new_state);     
