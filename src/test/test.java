@@ -23,14 +23,14 @@ public class test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-      ReadExcel e = new ReadExcel();
-      
-      ArrayList<ArrayList> data = e.load_excel_format_xls("D:\\testing.xlsx");
+
+        ReadExcel e = new ReadExcel();
         SimulatedAnnealing sa = new SimulatedAnnealing();
         DistanceMeasure ed = new DistanceMeasure();
         MatrixOperator matrix = new MatrixOperator();
-        
+
+      ArrayList<ArrayList> data = e.load_excel_format_xls("D:\\testing.xlsx");
+
 //        String path = "D://dataset";
 //        Pembobotan bobot = new Pembobotan(path);
 //        bobot.doPembobotan();
@@ -50,13 +50,12 @@ public class test {
 //        K_Means km = new K_Means();
 //
 //        km.do_k_means(centeroid_algen, data);
-
         sa.do_sa(data);
     }
 }
-        
+
 //    public static void main(String[] args) {
-        // TODO code application logic here
+// TODO code application logic here
 //        ReadExcel ex = new ReadExcel();
 //        ArrayList<ArrayList<Double>> data = ex.load_excel_format_xls("D:\\testing.xlsx");
 //        
@@ -104,4 +103,4 @@ public class test {
 //    }
 //    
 //}
-    
+
