@@ -8,7 +8,7 @@ package boundary;
 import cern.colt.matrix.DoubleMatrix2D;
 import cern.colt.matrix.impl.DenseDoubleMatrix2D;
 import cern.colt.matrix.linalg.SingularValueDecomposition;
-import Controller.SimulatedAnnealing;
+import controller.SimulatedAnnealing;
 import controller.DBI;
 import controller.K_Means;
 import controller.MatrixOperator;
@@ -434,10 +434,10 @@ public class Form extends javax.swing.JFrame {
     private void ButtonMulaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMulaiActionPerformed
         // TODO add your handling code here:
         if (TextFieldJlhK.getText().isEmpty() || Integer.valueOf(TextFieldJlhK.getText()) <= 1) {
-            JOptionPane.showMessageDialog(null, "Nilai k tidak boleh kosong atau sama dengan satu",
+            JOptionPane.showMessageDialog(null, "nilai k (cluster) tidak boleh kosong atau sama dengan satu ",
                     "gagal", JOptionPane.ERROR_MESSAGE);
         } else if (Integer.valueOf(TextFieldJlhK.getText()) >= bobot.getListDocument().size()) {
-            JOptionPane.showMessageDialog(null, "Nilai k tidak boleh lebih dari atau sama dengan jumlah dokumen",
+            JOptionPane.showMessageDialog(null, "nilai k (cluster) tidak boleh lebih dari atau sama dengan jumlah dokumen",
                     "gagal", JOptionPane.ERROR_MESSAGE);
         } else {
             if (RadioButtonKMeans.isSelected()) {
@@ -663,7 +663,7 @@ public class Form extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_waktuKomputasiActionPerformed
 
-    void populateTable(ArrayList<ArrayList> hasilClustering) {
+      void populateTable(ArrayList<ArrayList> hasilClustering) {
         DefaultTableModel tabelModel = new DefaultTableModel(getMaxCluster(hasilClustering), hasilClustering.size());
         for (int j = 0; j < tabelModel.getColumnCount(); j++) {
             for (int i = 0; i < tabelModel.getRowCount(); i++) {
@@ -678,7 +678,7 @@ public class Form extends javax.swing.JFrame {
         jTableCluster.setModel(tabelModel);
 
     }
-      int getMaxCluster(ArrayList<ArrayList> hasilClustering) {
+     int getMaxCluster(ArrayList<ArrayList> hasilClustering) {
         int max = hasilClustering.get(0).size();
         for (int i = 0; i < hasilClustering.size(); i++) {
             if (hasilClustering.get(i).size() > max) {

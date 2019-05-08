@@ -18,11 +18,11 @@ public class K_Means {
     int maks_iterasi = 0;
 
     public void do_k_means(ArrayList<ArrayList> centroid_fix, ArrayList<ArrayList> data) {
-        DistanceMeasure dm = new DistanceMeasure();
+        EuclideanDistance ed = new EuclideanDistance  ();
         boolean check = false;
         ArrayList<ArrayList> centroid_lama = new ArrayList<>(centroid_fix);
-        ArrayList<ArrayList> euclidean = dm.jarak_euclidean(centroid_lama, data);
-        ArrayList<ArrayList> label_euclidean = dm.label_state(euclidean);
+        ArrayList<ArrayList> euclidean = ed.jarak_euclidean(centroid_lama, data);
+        ArrayList<ArrayList> label_euclidean = ed.label_state(euclidean);
 //        System.out.println("label sebelum");
 //        System.out.println(label_euclidean);
 
@@ -36,9 +36,9 @@ public class K_Means {
 //            System.out.println("jarak_1");
 //            System.out.println(euclidean);
             
-            ArrayList<ArrayList> update_centroid = dm.update_centeroid(label_euclidean, data);
-            ArrayList<ArrayList> euclidean_update = dm.jarak_euclidean(update_centroid, data);
-            ArrayList<ArrayList> label_euclidean_update = dm.label_state(euclidean_update);
+            ArrayList<ArrayList> update_centroid = ed.update_centeroid(label_euclidean, data);
+            ArrayList<ArrayList> euclidean_update = ed.jarak_euclidean(update_centroid, data);
+            ArrayList<ArrayList> label_euclidean_update = ed.label_state(euclidean_update);
 
             for (int i = 0; i < label_euclidean_update.size(); i++) {
                 if (label_euclidean.get(i).size() == label_euclidean_update.get(i).size()) {
@@ -55,8 +55,8 @@ public class K_Means {
             }
 
             centroid_lama = new ArrayList<>(update_centroid);
-            euclidean = dm.jarak_euclidean(centroid_lama, data);
-            label_euclidean = dm.label_state(euclidean);
+            euclidean = ed.jarak_euclidean(centroid_lama, data);
+            label_euclidean = ed.label_state(euclidean);
             maks_iterasi++;
 
             if (maks_iterasi == 1000) {

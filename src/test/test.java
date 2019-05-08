@@ -5,12 +5,13 @@
  */
 package test;
 
-import Controller.SimulatedAnnealing;
+import controller.SimulatedAnnealing;
 import Entity.ReadExcel;
 import controller.DistanceMeasure;
 import controller.K_Means;
 import controller.MatrixOperator;
 import controller.Pembobotan;
+import controller.Coba;
 import java.util.ArrayList;
 
 /**
@@ -23,40 +24,28 @@ public class test {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-      ReadExcel e = new ReadExcel();
-      
-      ArrayList<ArrayList> data = e.load_excel_format_xls("D:\\testing.xlsx");
+
+        ReadExcel e = new ReadExcel();
+
+        ArrayList<ArrayList> data = e.load_excel_format_xls("E:\\testing.xlsx");
         SimulatedAnnealing sa = new SimulatedAnnealing();
         DistanceMeasure ed = new DistanceMeasure();
         MatrixOperator matrix = new MatrixOperator();
-        
-//        String path = "D://dataset";
+
+//        String path = "E://dataset";
 //        Pembobotan bobot = new Pembobotan(path);
 //        bobot.doPembobotan();
 //        double[][] data_bobot = bobot.getHasilPembobotan();
-//        ArrayList<ArrayList> data = sa.array_to_arraylist(matrix.transpose(data_bobot));
+//        ArrayList<ArrayList> data = bobot.array_to_arraylist(matrix.transpose(data_bobot));
+          sa.do_sa(data);
+//        Coba coba = new Coba();
+//        coba.do_sa(data);
 
-//        int cluster = 3;
-//        int ti = 100;
-//        
-//        int iterasi = 3;
-//        double cr = 0.5;
-//        double mr = 0.2;
-//        
-//        ArrayList<ArrayList> centeroid_algen = algen.do_algen(data, cluster, popsize, iterasi, cr, mr);
-//        ArrayList<ArrayList> centeroid = algen.kromosom(cluster, data.get(0).size(), matrix.nilai_minimum(data), matrix.nilai_maksimum(data));
-//
-//        K_Means km = new K_Means();
-//
-//        km.do_k_means(centeroid_algen, data);
-
-        sa.do_sa(data);
     }
 }
-        
+
 //    public static void main(String[] args) {
-        // TODO code application logic here
+// TODO code application logic here
 //        ReadExcel ex = new ReadExcel();
 //        ArrayList<ArrayList<Double>> data = ex.load_excel_format_xls("D:\\testing.xlsx");
 //        
@@ -104,4 +93,4 @@ public class test {
 //    }
 //    
 //}
-    
+

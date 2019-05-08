@@ -8,7 +8,7 @@ package test;
 import cern.colt.matrix.DoubleMatrix2D;
 import cern.colt.matrix.impl.DenseDoubleMatrix2D;
 import cern.colt.matrix.linalg.SingularValueDecomposition;
-import Controller.SimulatedAnnealing;
+import controller.SimulatedAnnealing;
 import controller.DistanceMeasure;
 import controller.DBI;
 import controller.K_Means;

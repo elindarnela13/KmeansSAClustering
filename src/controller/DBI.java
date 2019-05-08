@@ -6,7 +6,7 @@
 package controller;
 
 import java.util.ArrayList;
-import Controller.SimulatedAnnealing;
+import controller.SimulatedAnnealing;
 
 /**
  *

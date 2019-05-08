@@ -87,6 +87,7 @@ public class DistanceMeasure {
         ArrayList<ArrayList> label_state = new ArrayList<>();
 
         ArrayList<Integer> labeling = new ArrayList<>();
+        
         for (int i = 0; i < jarak_euclidean_1.size(); i++) {
             double jarak = Double.parseDouble(jarak_euclidean_1.get(i).get(0).toString());
             int index = 0;
@@ -97,8 +98,9 @@ public class DistanceMeasure {
                 }
             }
             labeling.add(index);
+          
         }
-
+  System.out.println(labeling);
         for (int i = 0; i < jarak_euclidean_1.get(0).size(); i++) {
             ArrayList<Integer> label_state_s = new ArrayList<>();
 
@@ -109,6 +111,7 @@ public class DistanceMeasure {
             }
             label_state.add(label_state_s);
         }
+      
         return label_state;
     }
 
