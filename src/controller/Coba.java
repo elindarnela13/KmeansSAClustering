@@ -89,7 +89,11 @@ public class Coba {
     }
 
     public void do_sa(ArrayList<ArrayList> data) {
+<<<<<<< HEAD
         controller.EuclideanDistance ed = new controller.EuclideanDistance();
+=======
+        controller.DistanceMeasure ed = new controller.DistanceMeasure();
+>>>>>>> fd838d33718269e10e55f967d713d00ea5e264ac
         controller.MatrixOperator matrix = new controller.MatrixOperator();
 
         int cluster = 3;

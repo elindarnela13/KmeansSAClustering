@@ -1,0 +1,134 @@
+CLUSTERING ALGORITMA FUZZY ANT UNTUK
+OPTIMALISASI PENENTUAN RUTE
+KEMACETAN TANAH ABANG
+Tanah Abang merupakan salah satu kecamatan yang terletak di Kota Administrasi Jakarta
+Pusat dengan luas wilayah 9,3 Km2
+. Berdasarkan administrasi pemerintahan, kecamatan Tanah
+Abang terdiri dari 7 kelurahan, yaitu Kelurahan Gelora, Bendungan Hilir, Karet Tengsin,
+Kebon Melati, Petamburan, Kebon Kacang, dan Kampung Bali. Tanah Abang merupakan
+daerah yang sebagian besar perkantoran, pusat perbelanjaan dan pemukiman penduduk
+sehingga banyak kendaraan yang lalu lalang sehingga terjadi kemacetan di jalan sudah
+terbiasa terjadi di Daerah Kecamatan Tanah Abang. Penulis melakukan riset untuk
+menentukan rute kemacetan di daerah tersebut untuk menganalisa penyebab terjadinya
+kemacetan dengan menggunakan Metode Algoritma Fuzzy Ant. Penggunaan Algoritma Fuzzy
+Ant memungkinkan pemilihan rute semut lebih cepat mencapai konvergen karena pemilihan
+tersebut menggunakan cluster maksimum Fuzzy C-Means dari 3 cluster keanggotaan sehingga
+proses siklus Ant tidak terlalu lama. Hasil yang di dapatkan dari algoritma tersebut untuk
+pencarian rute kemacetan adalah B-E-C-A dikarenakan terdapat parkir sembarangan,
+perbaikan jalan, maupun penutupan jalan. 
+1. PENDAHULUAN
+Tanah Abang merupakan salah satu kecamatan yang terletak di Kota Administrasi Jakarta
+Pusat dengan luas wilayah 9,3 Km2
+. Berdasarkan administrasi pemerintahan, kecamatan Tanah
+Abang terdiri dari 7 kelurahan, yaitu Kelurahan Gelora, Bendungan Hilir, Karet Tengsin, Kebon Melati, Petamburan, Kebon Kacang, dan Kampung Bali.Kecamatan Tanah Abang juga
+berbatasan langsung dengan Kecamatan Menteng, Kecamatan Gambir, Kecamatan Palmerah,
+Kecamatan Kebayoran Lama, Kecamatan Kebayoran Baru dan Kecamatan Setiabudi.
+Daerah Kecamatan Tanah Abang merupakan daerah yang sebagian besar perkantoran,
+pusat perbelanjaan dan pemukiman penduduk, sehingga lalu lalang kendaraan, udara panas, dan
+lembab adalah pemandangan yang biasa terlihat di Tanah Abang[1].
+Banyak Kendaraan yang lalu lalang sehingga terjadi kemacetan di jalan sudah terbiasa
+terjadi di Daerah Kecamatan Tanah Abang.Berdasarkan hasil pengamatan dari penulis, ada
+beberapa faktor yang menyebabkan kemacetan diantaranya belum efektifnya angkutan umum
+seperti busway, Mass Rapid Transit (MRT) dan Light Rail Transit (LRT); Pertumbuhan
+kendaraan yang tinggi tidak diimbangi oleh pembangunan jalan; kurangnya kesadaran
+masyarakat untuk menggunakan moda angkutan umum.
+Melihat situasi tersebut, maka penulis melakukan riset untuk menentukan rute kemacetan
+di daerah tersebut untuk menganalisa penyebab terjadinya kemacetan. Sebelumnya penulis
+pernah membuat penelitian Analisa Efektifitas Jalur Terpendek Menggunakan Algoritma Semut
+Dan Pendekatan LeadTime[2], yang dimana kendala pada Algoritma Semut adalah rute selalu
+berubah setiap melewati siklus walaupun panjang jarak yang didapatkan adalah sama dan
+persentase yang didapatkan masih rendah. Berdasarkan alasan tersebut, penulis menggunakan
+Algoritma FuzzyAntdengan Clustering Fuzzy C-Means sehingga nilai rute semut (Ant) lebih
+optimal dan konsistensi untuk Daerah Kecamatan Tanah Abang. 
+2. METODE PENELITIAN
+Penulis menggunakan metode FuzzyAntuntuk optimalisasi rutedimana konsep yang
+diambil adalah sebagai berikut :
+2.1 Algoritma Ant (Ant Algorithm)
+Algoritma ini diadopsi dari perilaku koloni semut dimana dikenal dengan sistem
+semut[3]. Konsep dari algoritma ini adalah menemukan rute terpendek berdasarkan jejak kaki
+lintasan yang telah dilalui semut. Semakin banyak semut melintasi dan meninggalkan feromon,
+maka akan semakin jelas bekas jejak kakinya. Hal ini menyebabkan lintasan yang dilalui semut
+dalam jumlah sedikit, semakin lama semakin berkurang kepadatan semut yang melewatinya,
+atau bahkan tidak dilewati sama sekali. Sebaliknya lintasan yang dilalui semut dalam jumlah
+banyak, semakin lama akan semakin bertambah kepadatan semut yang melewatinya, atau
+bahkan semua semut akan melewati lintasan tersebut. Langkah-langkah Algoritma semut untuk
+menentukan rute terpendek adalah sebagai berikut :
+a) Inisialisasi parameter-parameter [2,4] dimana
+1. Intensitas jejak semut yang menandakan intensitas feromon
+2. Visibilitas jejak
+3. a tetapan pengendali intensitas
+4. ß tetapan pengendali visibilitas
+5. ? tetapan penguapan jejak semut
+6. Q tetapan siklus semut
+b) Mengisi titik pertama ke dalam tabu list yang dilakukan secara acak
+c) Menyusun rute kunjungan setiap semut ke setiap titik.
+d) Menggerakkan semut ke titik berikutnya dengan menggunakan persamaan probabilitas
+sebagai berikut : e) Menghitung panjang rute setiap semut dilakukan setelah satu siklus diselesaikan oleh
+semut yang berdasarkan dengan tabu masing masing dengan adalah jarak antara titik i ke titik j yang dihitung berdasarkan : f) Pencarian rute terpendek berdasarkan harga minimal panjang jarak rute.
+g) Menghitung perubahan intensitas jejak semut dengan meninggalkan feromon pada lintasan
+yang dilaluinya Setiap semut dihitung berdasarkan persamaan h) Menghitung intensitas feromon semut untuk siklus berikutnya i) Menghentikan iterasi jika jumlah siklus sudah maksimum atau konvergensi
+Fuzzy C-Means (FCM) merupakan metode clustering yang memperbolehkan bagian data
+mempunyai dua atau lebih cluster (kelompok). Metode ini dibangun oleh Dunn [5] dan
+dikembangkan oleh Bezdek [6] yang biasanya digunakan untuk pengenalan pola dan didasari
+oleh konsep fuzzy c-partition yang diperkenalkan Ruspini [7], dimana langkah-langkahnya
+sebagai berikut :
+a) adalah kumpulan data, dimana setiap titik poin data adalah
+vektor dalam dimensi P (RO), Ucn adalah kumpulan bilangan real dengan c x n matriks, dan
+c adalah integer, 2 = c < n. Kemudian, fuzzy c-partition untuk nilai X adalah sebagai berikut
+dimanaUikadalah nilai anggota dengan xk dalam cluster i
+b) Sasaran algoritma FCM untuk menemukan pilihan fuzzy c-partition dan sesuai bentuk
+prototipe minimalisasi fungsi objektif
+c) V = adalah matriks cluster center (prototipe) vi =RO, . adalah Euclidean
+norm, dan bobot eksponen m dalam [1, 8) adalah konstan yang mempengaruhi nilai
+keanggotaan.
+d) Kriteria minimalisasi Jm dibawah kendali fuzzy, algoritma FCM didefinisi sebagai algoritma
+minimalisasi bergilir sebagai berikut :
+1. Memilih nilai c, m dan ?sebagai konstanta positif kecil
+2. Menghasilkan fuzzy c-partition secara acak U0 dan mengatur iterasi t=0
+e) Proses perulangan dua langkah tersebut berjalan dengan memberikan nilai keanggotaan
+
+2.3Algoritma Fuzzy Ant
+Optimalisasi pemilihan rute dapat dilakukan denganmengambil nilai cluster center FCM
+ke dalam probabilitas Antsaat mengisi atau menggerakkan semut yang biasanya dilakukan
+secara acak untuk mendapatkan titik berikutnya. Langkah-langkah algoritma yang dilakukan
+untuk optimalisasi pemilihan rute adalah sebagai berikut :
+3. HASIL DAN PEMBAHASAN
+Data sampel yang diambil di wilayah Tanah Abangadalah data kecepatan melalui aplikasi
+geo tracker dan map plusyang diambil sebanyak 75 data selama dua bulan (April sampai dengan
+Mei) pada jam sibuk kendaraan dari pukul 10.00 sampai dengan 15.00; dimana pengendali
+intensitas (a) = 1, pengendali visibilitas = 1, penguapan jejak semut (?) = 0.5, intensitas
+feromon (tij)= 0.01, Nilai Maksimum Siklus (NCmax)= 6, dengan matriks (m x n) = 5 x 5
+sebagai berikut : Rute A sampai dengan E adalah rute strategis yang sering dilewati kendaraan yang
+mempunyai kendala jalan pada Wilayah Tanah Abang yang antara lain A adalah Jalan Taman
+Jati Baru no. 18, B adalah Jalan Tanah Abang 5 no. 54 E, C adalah Jalan Kebun Kacang IV no.
+2B, D adalah Jalan KH. Wahid Hasyim no. 177, dan E adalah Jalan KB Jati no. 32.
+Rute tersebut kemudian dihitung probabilitas semut menuju ke titik berikutnya dengan
+membagi menjadi 3 cluster, yang selanjutnya dihitung cluster center untuk mengupdate nilai
+bobot cluster tertinggi atau maksimum dari FCM. Nilai cluster maksimum tersebut digunakan
+untuk pemilihan titik berikutnya. Hasil dari pemilihan titik dengan menggunakan algoritma Fuzzy Ant untuk mendapatkan
+keseluruhan rute yang dilalui semut dengan menghitung perubahan intensitas jejak semut
+(?ti,j)adalah sebagai berikut : Berdasarkan pada tabel 3, siklus rute yang dilewati semut tidak mengalami banyak
+perubahan yang signifikan (konvergen), dimana nilai ?ti,jmulai tidak berubah ketika berada pada
+siklus ke-3. Penyebab nilai tersebut lebih cepat mencapai konvergen dikarenakan pemilihan rute
+menggunakan cluster maksimum.
+Kesimpulan yang didapatkan dari data tersebut adalah rute yang memungkinkan lebih
+besar terjadinya kemacetan di wilayah Tanah Abang adalah rute B-E-C-A.Beberapa alasan terpilihnya B-E-C-A oleh algoritma Fuzzy Ant yang ditemukan
+dilapangan adalah sebagai berikut :
+a) Pada rute B ke E terdapat parkir sembarangan dan pedagang yang berjualan di luar batas
+trotoar
+b) Pada rute E ke C terdapat perbaikan jalan dan pembongkaran kabel PT PLN.
+c) Pada rute C ke A terdapat penutupan jalan sehingga jarak yang ditempuh menjadi panjang.
+4. KESIMPULAN
+Berdasarkan hasil pengolahan data dari algoritma Fuzzy Ant dapat diperoleh kesimpulan
+sebagai berikut :
+a) rute yang memungkinkan lebih besar terjadinya kemacetan di wilayah Tanah Abang adalah
+rute B-E-C-A, dimana :
+1. Pada rute B ke E terdapat parkir sembarangan dan pedagang yang berjualan di luar batas
+trotoar.
+2. Pada rute E ke C terdapat perbaikan jalan dan pembongkaran kabel PT PLN.
+3. Pada rute C ke A terdapat penutupan jalan sehingga jarak yang ditempuh menjadi
+panjang.
+4. Pada rute C ke A terdapat penutupan jalan sehingga jarak yang ditempuh menjadi
+panjang.
+b) Pemilihan rute semut dengan algoritma Fuzzy Ant lebih cepat mencapai konvergen karena
+pemilihan tersebut menggunakan cluster maksimum dari FCM

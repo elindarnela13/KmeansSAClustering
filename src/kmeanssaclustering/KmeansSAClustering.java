@@ -7,7 +7,11 @@ package kmeanssaclustering;
 
 /**
  *
+<<<<<<< HEAD
  * @author User
+=======
+ * @author windows7
+>>>>>>> fd838d33718269e10e55f967d713d00ea5e264ac
  */
 public class KmeansSAClustering {
 

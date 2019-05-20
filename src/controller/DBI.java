@@ -6,7 +6,11 @@
 package controller;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import Controller.SimulatedAnnealing;
+=======
+import controller.SimulatedAnnealing;
+>>>>>>> fd838d33718269e10e55f967d713d00ea5e264ac
 
 /**
  *
@@ -31,7 +35,11 @@ public class DBI {
     }
 
     public ArrayList<Double> si(ArrayList<ArrayList> data, ArrayList<ArrayList> centroid) {
+<<<<<<< HEAD
         EuclideanDistance distance = new EuclideanDistance();
+=======
+        DistanceMeasure distance = new DistanceMeasure();
+>>>>>>> fd838d33718269e10e55f967d713d00ea5e264ac
 
         ArrayList<ArrayList> jarak = distance.jarak_euclidean(centroid, data);
         ArrayList<ArrayList> label = distance.label_state(jarak);

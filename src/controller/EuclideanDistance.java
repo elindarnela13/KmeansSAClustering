@@ -26,8 +26,12 @@ public class EuclideanDistance {
                             (Double.parseDouble(data.get(i).get(k).toString())
                             - Double.parseDouble(kromosom.get(j).get(k).toString())), 2));
                 }
+<<<<<<< HEAD
                 double total_jarak = Math.sqrt(total);
                 jarak_c.add(total_jarak);
+=======
+                jarak_c.add(total);
+>>>>>>> fd838d33718269e10e55f967d713d00ea5e264ac
             }
             jarak_euclidean.add(jarak_c);
         }
@@ -98,7 +102,11 @@ public class EuclideanDistance {
             labeling.add(index);
         }
 
+<<<<<<< HEAD
         for (int i = 0; i < jarak_euclidean_1.get(0).size(); i++) {
+=======
+        for (int i = 0; i < 3; i++) {
+>>>>>>> fd838d33718269e10e55f967d713d00ea5e264ac
             ArrayList<Integer> label_kromosom_s = new ArrayList<>();
 
             for (int j = 0; j < labeling.size(); j++) {

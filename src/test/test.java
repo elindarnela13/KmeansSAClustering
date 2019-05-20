@@ -5,13 +5,22 @@
  */
 package test;
 
+<<<<<<< HEAD
 import Controller.SimulatedAnnealing;
 import controller.EuclideanDistance;
+=======
+import controller.SimulatedAnnealing;
+import Entity.ReadExcel;
+import controller.DistanceMeasure;
+>>>>>>> fd838d33718269e10e55f967d713d00ea5e264ac
 import controller.K_Means;
 import controller.MatrixOperator;
 import controller.Pembobotan;
 import controller.Coba;
+<<<<<<< HEAD
 import controller.DBI;
+=======
+>>>>>>> fd838d33718269e10e55f967d713d00ea5e264ac
 import java.util.ArrayList;
 
 /**
@@ -25,6 +34,7 @@ public class test {
      */
     public static void main(String[] args) {
 
+<<<<<<< HEAD
         SimulatedAnnealing sa = new SimulatedAnnealing();
         EuclideanDistance ed = new EuclideanDistance();
         MatrixOperator matrix = new MatrixOperator();
@@ -53,6 +63,52 @@ public class test {
 ////          
 //        dbi.hitung_dbi(data, km.get_centroid());
 
+=======
+        ReadExcel e = new ReadExcel();
+<<<<<<< HEAD
+
+        ArrayList<ArrayList> data = e.load_excel_format_xls("E:\\testing.xlsx");
+=======
+>>>>>>> ef392f493dcf461ca855c46b79fae93e859e4628
+        SimulatedAnnealing sa = new SimulatedAnnealing();
+        DistanceMeasure ed = new DistanceMeasure();
+        MatrixOperator matrix = new MatrixOperator();
+
+<<<<<<< HEAD
+//        String path = "E://dataset";
+//        Pembobotan bobot = new Pembobotan(path);
+//        bobot.doPembobotan();
+//        double[][] data_bobot = bobot.getHasilPembobotan();
+//        ArrayList<ArrayList> data = bobot.array_to_arraylist(matrix.transpose(data_bobot));
+          sa.do_sa(data);
+//        Coba coba = new Coba();
+//        coba.do_sa(data);
+
+=======
+      ArrayList<ArrayList> data = e.load_excel_format_xls("D:\\testing.xlsx");
+
+//        String path = "D://dataset";
+//        Pembobotan bobot = new Pembobotan(path);
+//        bobot.doPembobotan();
+//        double[][] data_bobot = bobot.getHasilPembobotan();
+//        ArrayList<ArrayList> data = sa.array_to_arraylist(matrix.transpose(data_bobot));
+
+//        int cluster = 3;
+//        int ti = 100;
+//        
+//        int iterasi = 3;
+//        double cr = 0.5;
+//        double mr = 0.2;
+//        
+//        ArrayList<ArrayList> centeroid_algen = algen.do_algen(data, cluster, popsize, iterasi, cr, mr);
+//        ArrayList<ArrayList> centeroid = algen.kromosom(cluster, data.get(0).size(), matrix.nilai_minimum(data), matrix.nilai_maksimum(data));
+//
+//        K_Means km = new K_Means();
+//
+//        km.do_k_means(centeroid_algen, data);
+        sa.do_sa(data);
+>>>>>>> ef392f493dcf461ca855c46b79fae93e859e4628
+>>>>>>> fd838d33718269e10e55f967d713d00ea5e264ac
     }
 }
 
